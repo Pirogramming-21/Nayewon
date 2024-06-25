@@ -25,6 +25,13 @@
             margin-top: 18px;
             padding: 10px;
             display: inline-block;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        #header-hamburger:hover {
+            background-color: #eaeef3;
+            border-radius: 50%;
         }
         #header-hamburger > div{
             background-image: url(sp_main.png);
@@ -32,7 +39,7 @@
             height: 34px;
             background-repeat: no-repeat;
             background-size: 323px 234px;
-            background-position: -49px -145px;
+            background-position: -55px -150px;
         }
         #main {
             height: 2000px;
@@ -43,9 +50,9 @@
     <div id="wrap">
         <div id="wrap-center">
             <div id="header">
-                <div id="header-hamburger">
+                <button id="header-hamburger">
                     <div></div>
-                </div>
+                </button>
             </div>
             <div id="search"></div>
             <div id="nav"></div>
