@@ -35,24 +35,37 @@
         #header-hamburger:hover::before {
             position: absolute;
             content: '';
-            left: 8px;
-            top: 8px;
+            z-index: 0; 
+            /* 레이어 위치 변경 시 사용(형제 관계에서만 적용) */
+            left: 7px;
+            top: 7px;
             width: 32px;
             height: 32px;
             background-color: #eaeef3;
             border-radius: 50%;
-            padding: 2px;
+            padding: 4px;
         }
         #header-hamburger > div{
             background-image: url(sp_main.png);
             width: 34px;
             height: 34px;
+            position: relative;
+            z-index: 1;
             background-repeat: no-repeat;
             background-size: 323px 234px;
             background-position: -55px -150px;
         }
         #main {
             height: 2000px;
+        }
+        .blind {
+            /* 'display: none'으로 하면 되는데 시각장애인을 위해 아래의 코드 사용 */
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -61,7 +74,10 @@
         <div id="wrap-center">
             <div id="header">
                 <button id="header-hamburger">
+                    <!--::before--> 
                     <div></div>
+                    <span class="blind">확장 영역</span>
+                    <!--::after-->
                 </button>
             </div>
             <div id="search"></div>
