@@ -7,12 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Sign Up</title>
     <style>
+        html,body {
+            margin: 0;
+            padding: 0;
+        }
         #wrap {
             text-align: center;
         }
 
         #wrap-center {
-            width: 1400px;
+            width: 1280px;
             display: inline-block;
             background-color: transparent;
         }
@@ -52,12 +56,16 @@
         }
 
         .content {
-            max-width: 400px;
+            max-width: 410px;
             text-align: left;
+            margin-left: 50px;
         }
 
         .content h1 {
-            font-size: 3em;
+            font-size: 3.3rem;
+            margin-block-start: 0em;
+            margin-block-end: 0em;
+
         }
 
         .signup-box {
@@ -66,13 +74,21 @@
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             color: #333;
-            width: 300px;
+            width: 310px;
+            margin-right: 40px;
         }
 
         .signup-box h1 {
             font-size: 0.8rem;
             margin-bottom: 20px;
             color: #24292e;
+        }
+
+        .githubment-text {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-align: left;
+            color: gray;
         }
 
         .signup-box label {
@@ -198,7 +214,7 @@
 
         .signup-box .footer-text a:hover {
             text-decoration: underline;
-        }   
+        } 
         label {
             font-size: 0.8rem;
         }     
@@ -248,7 +264,7 @@
             <div class="container">
                 <div class="content">
                     <h1>Built for developers</h1>
-                    <p>GitHub is a development platform inspired by the way you work. From <b><u>open source</u></b> to <b><u>business</u></b>, you
+                    <p class="githubment-text">GitHub is a development platform inspired by the way you work. From <b><u>open source</u></b> to <b><u>business</u></b>, you
                         can host and review code, manage projects, and build software alongside millions of developers.
                     </p>
                 </div>
@@ -271,4 +287,4 @@
     </div>>
 </body>
 
-</html&nbsp;
+</html>
