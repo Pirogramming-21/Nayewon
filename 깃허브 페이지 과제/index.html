@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Sign Up</title>
+    <style>
+        #wrap {
+            text-align: center;
+        }
+
+        #wrap-center {
+            width: 1400px;
+            display: inline-block;
+            background-color: transparent;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #24292e;
+            background-image: url('space_image3.jpg');
+            /* 배경 이미지 경로 설정 */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .overlay {
+            background-color: rgba(10, 11, 11, 0.85);
+            /* 투명도 조절 */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            height: 550px;
+            padding: 0 20px;
+            position: relative;
+            background-color: transparent;
+        }
+
+        .content {
+            max-width: 400px;
+            text-align: left;
+        }
+
+        .content h1 {
+            font-size: 3em;
+        }
+
+        .signup-box {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            color: #333;
+            width: 300px;
+        }
+
+        .signup-box h1 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #24292e;
+        }
+
+        .signup-box label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .signup-box input[type="text"],
+        .signup-box input[type="email"],
+        .signup-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #d1d5da;
+            border-radius: 4px;
+        }
+
+        .signup-box input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .signup-box input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .nav {
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav .left,
+        .nav .right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav .left img {
+            height: 32px;
+            margin-right: 20px;
+        }
+
+        .nav .left a,
+        .nav .right a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav .left a svg,
+        .nav .right a svg {
+            margin-left: 5px;
+        }
+
+        .nav .right .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav .right .search-box input {
+            padding: 5px 10px 5px 30px;
+            border: 1px solid #d1d5da;
+            border-radius: 4px;
+            background: url('https://github.githubassets.com/images/search-key-slash.svg') no-repeat 8px center;
+            background-size: 16px;
+        }
+
+        .nav .right .search-box svg {
+            position: absolute;
+            right: 10px;
+            pointer-events: none;
+        }
+
+        .nav .right .signup-btn {
+            padding: 5px 10px;
+            border: 1px solid white;
+            border-radius: 4px;
+        }
+
+        .signup-box .footer-text {
+            font-size: 0.8em;
+            color: #586069;
+            margin-top: 20px;
+        }
+
+        .signup-box .footer-text a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .signup-box .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        .make-sure-text {
+            font-size: 0.8em;
+            color: #586069;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <div id="wrap">
+        <div id="wrap-center">
+            <div class="nav">
+                <div class="left">
+                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                        alt="GitHub logo" style="background-color:white; padding:4px; border-radius:4px;">
+                    <a href="#">Why GitHub? <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                            fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        </svg></a>
+                    <a href="#">Team</a>
+                    <a href="#">Enterprise</a>
+                    <a href="#">Explore <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                            fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        </svg></a>
+                    <a href="#">Marketplace</a>
+                    <a href="#">Pricing <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                            fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        </svg></a>
+                </div>
+                <div class="right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.398 1.398h-.001a1 1 0 0 0 1.32.083l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85a1 1 0 0 0-.083-1.32zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </div>
+                    <a href="#">Sign in</a>
+                    <a href="#" class="signup-btn">Sign up</a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="content">
+                    <h1>Built for developers</h1>
+                    <p>GitHub is a development platform inspired by the way you work. From <b><u>open source</u></b> to <b><u>business</u></b>, you
+                        can host and review code, manage projects, and build software alongside millions of developers.
+                    </p>
+                </div>
+                <div class="signup-box">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                    <p class="make-sure-text">Make sure it's at least 15 characters OR at least 8 characters including a
+                        number and a lowercase letter.</p>
+                    <input type="submit" value="Sign up for GitHub">
+                    <p class="footer-text">By clicking “Sign up for GitHub”, you agree to our <a href="#">terms of
+                            service</a> and <a href="#">privacy statement</a>. <span>We’ll occasionally send you account
+                            related emails.</span></p>
+                </div>
+            </div>
+        </div>
+    </div>>
+</body>
+
+</html>
