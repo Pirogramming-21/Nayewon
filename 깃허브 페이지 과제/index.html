@@ -166,26 +166,31 @@
             position: relative;
             display: flex;
             align-items: center;
+            background-color: transparent;
+            margin-right: 15px;
         }
 
         .nav .right .search-box input {
-            padding: 5px 10px 5px 30px;
-            border: 1px solid #d1d5da;
-            border-radius: 4px;
-            background: url('https://github.githubassets.com/images/search-key-slash.svg') no-repeat 8px center;
+            padding: 7px 10px 7px 10px;
+            border: 1px solid rgb(75, 74, 74);
+            background-color: rgb(75, 74, 74);
+            border-radius: 5px;
             background-size: 16px;
+            font-weight: bold;
         }
 
         .nav .right .search-box svg {
-            position: relative;
-            right: 10px;
+            position: absolute;
+            right: 5px;
             pointer-events: none;
         }
 
-        .nav .right .signup-btn {
+        #signup-button {
             padding: 5px 10px;
             border: 1px solid white;
             border-radius: 4px;
+            background-color: transparent;
+            color: white;
         }
 
         .make-sure-text {
@@ -251,14 +256,10 @@
                 <div class="right">
                     <div class="search-box">
                         <input type="text" placeholder="Search GitHub">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-search" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M11.742 10.344a6.5 6.5 0 1 0-1.398 1.398h-.001a1 1 0 0 0 1.32.083l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85a1 1 0 0 0-.083-1.32zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" aria-hidden="true" class="mr-1"><path fill="none" stroke="#979A9C" opacity=".4" d="M3.5.5h12c1.7 0 3 1.3 3 3v13c0 1.7-1.3 3-3 3h-12c-1.7 0-3-1.3-3-3v-13c0-1.7 1.3-3 3-3z"></path><path fill="#979A9C" d="M11.8 6L8 15.1h-.9L10.8 6h1z"></path></svg>
                     </div>
                     <a href="#">Sign in</a>
-                    <a href="#" class="signup-btn">Sign up</a>
+                    <button href="#" id="signup-button">Sign up</button>
                 </div>
             </div>
             <div class="container">
