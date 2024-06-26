@@ -16,7 +16,7 @@
         #wrap-center {
             width: 1280px;
             display: inline-block;
-            background-color: yellow;
+            background-color: white;
         }
         #header {
             text-align: left;
@@ -131,14 +131,17 @@
                     width: 480px;
                     height: 58px;
                     padding: 17px 0;
+                    font-size: 1rem;
+                    line-height: 24px;
+                    font-weight: bold;
                     border: none;
                     outline: none;
                 }
                 #search > form > button {
                     background-image: url(sp_main.png);
                     position: relative;
-                    width: 42px;
-                    height: 42px;
+                    width: 40px;
+                    height: 40px;
                     padding: 17px;
                     margin-right: 12px;
                     margin-left: 20px;
@@ -146,7 +149,9 @@
                     background-repeat: no-repeat;
                     background-size: 323px 234px;
                     background-position: -196px -145px;
-                    fill: #03c75a;
+                    border: none;
+                    outline: none;
+                    background-color: #03c75a;
                 }
             </style>
             <div id="search">
@@ -156,7 +161,15 @@
                         <div id="logo"></div>
                     </button>
                     <label for="search-input" class="blind">검색어 입력</label>
-                    <input id="search-input" type="text" />
+                    <input id="search-input" type="text" placeholder="검색어를 입력해주세요."/>
+                    <div id="search-right">
+                        <button href="#", id="search-recent">
+                            <span class="blind">입력도구</span>
+                        </button>
+                        <button href="#", id="search-recent">
+                            <span class="blind">자동완성/최근검색어펼치기</span>
+                        </button>
+                    </div>
                 </form>
             </div>
             <div id="nav"></div>
