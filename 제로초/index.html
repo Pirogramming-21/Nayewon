@@ -119,8 +119,8 @@
             <!-- 원칙적으로는 header 쪽에 style 태그를 써야 함 -->
             <style>
                 #search > form {
-                    display: inline-block;
-                    width: 708px;
+                    display: inline-flex;
+                    width: 630px;
                     height: 60px;
                     border: 1px solid #03c75a;
                     border-radius: 33px;
@@ -137,7 +137,15 @@
                     border: none;
                     outline: none;
                 }
-                #search > form > button {
+                #search-left {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    flex-direction: row;
+                    z-index: 0;
+                }
+                #search-left > button {
                     background-image: url(sp_main.png);
                     position: relative;
                     width: 40px;
@@ -145,29 +153,52 @@
                     padding: 17px;
                     margin-right: 12px;
                     margin-left: 20px;
-                    position: relative;
                     background-repeat: no-repeat;
                     background-size: 323px 234px;
                     background-position: -196px -145px;
                     border: none;
                     outline: none;
                     background-color: #03c75a;
+                    z-index: 1;
+                    cursor: pointer;
+                }
+                #search-right {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    flex-direction: row;
+                }
+                #search-right button {
+                    background-image: url(sp_main.png);
+                    position: relative;
+                    width: 40px;
+                    height: 40px;
+                    padding: 17px;
+                    margin-left: 12px;
+                    margin-right: 20px;
+                    background-repeat: no-repeat;
+                    background-size: 323px 234px;
+                    background-position: -241px -145px;
+                    background-color: white;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
                 }
             </style>
             <div id="search">
                 <!-- input에서 enter를 눌렀을 때 자동으로 넘어가게 하기 위해 form 사용 -->
                 <form action="">
-                    <button id="Naverlogo">
-                        <div id="logo"></div>
-                    </button>
+                    <div id="search-left">
+                        <button id="Naverlogo">
+                            <div id="logo"></div>
+                        </button>
+                    </div>
                     <label for="search-input" class="blind">검색어 입력</label>
                     <input id="search-input" type="text" placeholder="검색어를 입력해주세요."/>
                     <div id="search-right">
-                        <button href="#", id="search-recent">
-                            <span class="blind">입력도구</span>
-                        </button>
-                        <button href="#", id="search-recent">
-                            <span class="blind">자동완성/최근검색어펼치기</span>
+                        <button href="#" id="search-greendot">
+                            <span class="blind">도구기능</span>
                         </button>
                     </div>
                 </form>
