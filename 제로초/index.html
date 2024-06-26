@@ -126,6 +126,9 @@
                     border-radius: 33px;
                     text-align: left;
                 }
+                #search > form:hover {
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12);
+                }
                 #search > form > input {
                     position: relative;
                     width: 480px;
@@ -161,6 +164,13 @@
                     background-color: #03c75a;
                     z-index: 1;
                     cursor: pointer;
+                }
+                /* placehorder(힌트 문장 작성) 색깔 바꾸기 - 기본은 흰색, focus 시 회색*/
+                #search-input::placeholder {
+                    color: white;
+                }
+                #search-input:focus::placeholder {
+                    color: rgb(230, 230, 230);
                 }
                 #search-right {
                     flex: 1;
