@@ -129,6 +129,10 @@
                 #search > form:hover {
                     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12);
                 }
+                /* input에 focus되지만 form까지 적용되게 하려면 'focus-within'사용 */
+                #search > form:focus-within {
+                    border: 1px solid #019f48c4;
+                }
                 #search > form > input {
                     position: relative;
                     width: 480px;
