@@ -485,10 +485,6 @@
                     margin-bottom: 16px;
                 }
 
-                #main-shopping {
-                    height: 560px;
-                }
-
                 #main-login {
                     height: 140px;
                     padding: 21px 20px 18px;
@@ -583,8 +579,7 @@
                     display: flex;
                     flex-flow: column;
                 }
-
-                #main-newstand-top {
+                #main-newstand-top, #main-shopping-top {
                     flex: 1;
                     padding: 18px 18px;
                 }
@@ -601,12 +596,12 @@
                     vertical-align: 5px;
                 }
 
-                #main-newstand-top .slash {
+                .left-section .slash {
                     position: relative;
                     padding-left: 20px;
                 }
 
-                #main-newstand-top .slash::before {
+                .left-section .slash::before {
                     content: '';
                     display: inline-block;
                     position: absolute;
@@ -619,7 +614,7 @@
                     transform: skewX(-15deg);
                 }
 
-                #main-newstand header {
+                .left-section header {
                     font-size: 1rem;
                     color: rgba(8, 8, 8, .5);
                     display: flex;
@@ -628,7 +623,7 @@
                     margin-bottom: 10px;
                 }
 
-                #main-newstand header .bold {
+                .left-section header .bold {
                     font-weight: bold;
                     color: black;
                 }
@@ -638,7 +633,7 @@
                     justify-content: flex-start;
                     height: 30px;
                     padding: 12px 20px;
-                    background-color: rgba(236, 236, 236, 0.947);
+                    background-color: var(--color_option_bg);
                     border-radius: 4px;
                     font-size: 1rem;
                     line-height: 26px;
@@ -731,15 +726,15 @@
                     height: 12px;
                 }
 
-                #main-newstand a {
+                .left-section a {
                     text-decoration: none;
                 }
 
-                #main-newstand a:visited {
+                .left-section a:visited {
                     color: inherit;
                 }
 
-                #main-newstand a:hover {
+                .left-section a:hover {
                     text-decoration: underline;
                 }
 
@@ -767,7 +762,7 @@
                     align-items: center;
                 }
 
-                #main-newstand footer {
+                .left-section footer {
                     border-top: 1px solid var(--color_border_in);
                     padding: 10px 0 11px;
                     display: flex;
@@ -825,8 +820,8 @@
                     height: 20px;
                 }
 
-                #main-newstand footer .prev,
-                #main-newstand footer .next {
+                .left-section footer .prev,
+                .left-section footer .next {
                     background: none;
                     border: none;
                     content: '';
@@ -846,12 +841,12 @@
                 }
 
                 /* 버튼 180도 회전 */
-                #main-newstand footer .prev::before {
+                .left-section footer .prev::before {
                     transform: rotate(180deg);
                 }
 
-                #main-newstand footer .prev::before,
-                #main-newstand footer .next::before {
+                .left-section footer .prev::before,
+                .left-section footer .next::before {
                     content: "";
                     display: block;
                     position: absolute;
@@ -868,24 +863,53 @@
                     margin: auto;
                 }
 
-                #main-newstand footer .text {
+                .left-section footer .text {
                     padding: 0 16px;
-                    width: 156px;
+                    min-width: 156px;
+                }
+                /* main-newstand의 id를 class로 낮춰주기 */
+                .left-section footer.hot {
+                    color: #9858f5;
                 }
 
-                #main-newstand footer .news {
+                .left-section footer .news {
                     color: rgb(72, 134, 181);
                     color: var(--color_news);
                 }
 
-                #main-newstand footer .total {
+                .left-section footer .total {
                     color: gray;
+                }
+                #main-shopping {
+                    height: 560px;
+                    display: flex;
+                    flex-flow: column;
+                }
+                #main-shopping-top {
+                    padding-top: 19px;
+                }
+                #main-shopping footer .text {
+                    min-width: 176px;
+
+                }
+                #main-shopping-gray {
+                    display: flex;
+                }
+                #main-shopping-gray .left {
+                    background-color: var(--color_option_bg);
+                    width: 668px;
+                    height: 50px;
+                    padding: 15px 20px 14px;
+                    display: flex;
+                }
+                #main-shopping-gray .right {
+                    margin-left: auto;
                 }
             </style>
             <main id="main">
                 <div id="main-left">
                     <aside id="main-left-ad"></aside>
-                    <section id="main-newstand">
+                    <section id="main-newstand" class="left-section">
                         <div id="main-newstand-top">
                             <header>
                                 <a href="#" class="bold">뉴스스탠드</a>
@@ -944,7 +968,40 @@
                             <button class="grid"><span class="blind">격자보기</span></button>
                         </footer>
                     </section>
-                    <section id="main-shopping"></section>
+                    <section id="main-shopping" class="left-section">
+                        <div id="main-shopping-top">
+                            <header>
+                                <a href="#" class="bold">쇼핑</a>
+                                <a href="#" class="slash">맨즈</a>
+                                <a href="#" class="slash">원쁠딜</a>
+                                <a href="#" class="slash">쇼핑라이브</a>
+                            </header>
+                            <div id="main-shopping-gray">
+                                <div class="left">
+                                    <a href="#">오늘의 혜택</a>
+                                    <div id="main-shopping-animation">
+                                        <a href="#">"살려주세요" 과제 다 못 할 위기에 처해...</a>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <span>1</span>
+                                    <span>/18</span>
+                                    <button class="prev"><span class="blind">이전페이지</span></button>
+                                    <button class="next"><span class="blind">다음페이지</span></button>
+                                </div>
+                            </div>
+                            <div id="main-shopping-grid">
+                             
+                            </div>
+                        </div>
+                        <footer>
+                            <button class="prev"><span class="blind">이전 페이지</span></button>
+                            <!-- &nbsp;는 두 칸 이상 띄어쓰기 적용 시 사용 -->
+                            <div class="text"><span class="hot">쇼핑핫아이템</span>&nbsp; 더보기 1<span class="total">/18</span>
+                            </div>
+                            <button class="next"><span class="blind">다음 페이지</span></button>
+                        </footer>
+                    </section>
                 </div>
                 <div id="main-right">
                     <section id="main-login">
