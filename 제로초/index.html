@@ -6,7 +6,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
     <title>NAVER</title>
     <style>
-        html, body {
+        html, body, form {
             margin: 0;
             padding: 0;
         }
@@ -21,6 +21,7 @@
         #header {
             text-align: left;
             position: relative;
+            height: 64px;
         }
         /* 겹치는 거 묶어주기 */
         #header-hamburger, #header-notice, #header-naverpay{
@@ -115,7 +116,49 @@
                     <!--::after-->
                 </button>
             </div>
-            <div id="search"></div>
+            <!-- 원칙적으로는 header 쪽에 style 태그를 써야 함 -->
+            <style>
+                #search > form {
+                    display: inline-block;
+                    width: 708px;
+                    height: 60px;
+                    border: 1px solid #03c75a;
+                    border-radius: 33px;
+                    text-align: left;
+                }
+                #search > form > input {
+                    position: relative;
+                    width: 480px;
+                    height: 58px;
+                    padding: 17px 0;
+                    border: none;
+                    outline: none;
+                }
+                #search > form > button {
+                    background-image: url(sp_main.png);
+                    position: relative;
+                    width: 42px;
+                    height: 42px;
+                    padding: 17px;
+                    margin-right: 12px;
+                    margin-left: 20px;
+                    position: relative;
+                    background-repeat: no-repeat;
+                    background-size: 323px 234px;
+                    background-position: -196px -145px;
+                    fill: #03c75a;
+                }
+            </style>
+            <div id="search">
+                <!-- input에서 enter를 눌렀을 때 자동으로 넘어가게 하기 위해 form 사용 -->
+                <form action="">
+                    <button id="Naverlogo">
+                        <div id="logo"></div>
+                    </button>
+                    <label for="search-input" class="blind">검색어 입력</label>
+                    <input id="search-input" type="text" />
+                </form>
+            </div>
             <div id="nav"></div>
             <div id="main"></div>
         </div>
