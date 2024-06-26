@@ -8,6 +8,7 @@
     <style>
         :root {
             --color_border_in: #efeeee; /* 원하는 색상 값으로 설정 */
+            --color_dot_divider: gray;
         }
         html, body, form {
             margin: 0;
@@ -448,6 +449,33 @@
                     flex: 1;
                     padding: 18px 18px;
                 }
+                #main-newstand-top .dot::before {
+                    content: '';
+                    display: inline-block;
+                    width: 4px;
+                    height: 4px;
+                    background-color: #d3d5d8;
+                    background-color: var(--color_dot_divider);
+                    margin: 9px 7px 0;
+                    border-radius: 50%;
+                    vertical-align: 5px;
+                }
+                #main-newstand-top .slash {
+                    position: relative;
+                    padding-left: 20px;
+                }
+                #main-newstand-top .slash::before{
+                    content: '';
+                    display: inline-block;
+                    position:absolute;
+                    top: 4px;
+                    left: 13px;
+                    width: 1px;
+                    height: 15px;
+                    background-color: #d3d5d8;
+                    background-color: var(--color_dot_divider);
+                    transform:skewX(-15deg); 
+                }
                 #main-newstand header {
                     font-size: 1rem;
                     color: rgba(8,8,8,.5);
@@ -467,6 +495,25 @@
                     padding: 12px 20px;
                     background-color: rgba(236, 236, 236, 0.947);
                     border-radius: 4px;
+                    font-size: 1rem;
+                    line-height: 26px;
+                }
+                #main-newstand-gray .left {
+                    flex: 1;
+                    display: flex;
+                }
+                #main-newstand-gray .left a:first-of-type::after {
+                    content: '';
+                    background-image: url(sp_main2.png);
+                    background-size: 442px 434px;
+                    background-position: -153px -176px;
+                    background-repeat: no-repeat;
+                    width: 9px;
+                    height: 6px;
+                    display: inline-block;
+                    margin: 10px 0 0 5px;
+                    vertical-align: top;
+                    margin-right: 10px;
                 }
                 #main-newstand a {
                     text-decoration: none;
@@ -514,18 +561,18 @@
                         <div id="main-newstand-top">  
                             <header> 
                                 <a href="#" class="bold">뉴스스탠드</a>
-                                <a href="#">언론사편집</a>
-                                <a href="#">엔터</a>
-                                <a href="#">스포츠</a>
-                                <a href="#">경제</a>
+                                <a href="#" class="dot">언론사편집</a>
+                                <a href="#" class="slash">엔터</a>
+                                <a href="#" class="slash">스포츠</a>
+                                <a href="#" class="slash">경제</a>
                             </header>
                             <div id="main-newstand-gray">
-                                <div>
+                                <div class="left">
                                     <a href="#">전체언론사</a>
                                     <a href="#">연합뉴스</a>
-                                    <a href="#">"살려주세요" 과제 다 못 할 위기에 처해...</a>
+                                    <a href="#"class="dot">"살려주세요" 과제 다 못 할 위기에 처해...</a>
                                 </div>
-                                <div>
+                                <div class="right">
                                     <a href="#">뉴스스탠드</a>
                                     <a href="#">뉴스홈</a>
                                 </div>
