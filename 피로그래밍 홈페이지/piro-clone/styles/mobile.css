@@ -30,7 +30,6 @@
 
 @media screen and (min-width: 769px) {
 
-    /* >를 안 쓰면 태그 밑의 모든 자식이 선택됨 */
     #hamburger-icon {
         display: none;
     }
@@ -38,19 +37,29 @@
 
 @media screen and (max-width: 768px) {
 
-    /* >를 안 쓰면 태그 밑의 모든 자식이 선택됨 */
     .main-header--container ul {
         display: none;
     }
 
     .sidebar {
-        width: 300px;
+        width: 250px;
         height: calc(100vh - 9rem);
         position: fixed;
-        background-color: aliceblue;
+        background-color: rgb(63, 63, 63);
         top:9rem;
         right: -300px;
         transition: 0.3s;
+    }
+
+    .sidebar > ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 40px;
+        font-size: 2.2rem;
+        text-align: right;
+        margin-top: 40px;
+        margin-right: 40px;
     }
 
     #hamburger-icon > input[type="checkbox"]:checked ~ .sidebar {
