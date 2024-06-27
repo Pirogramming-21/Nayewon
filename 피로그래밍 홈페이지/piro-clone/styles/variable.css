@@ -5,3 +5,37 @@
   --gray: #333333;
   --header-height: 9rem;
 }
+
+:root {
+  --black: #000;
+  --bg-3: rgb(222, 222, 222);
+  --bg-5: rgba(236, 236, 236, 0.466);
+  --bg-gray: #333333;
+  --scroll-bar-gray: #222222;
+  --line-gray: #606060;
+  --white: #fff;
+  --subtext-gray: #c6c6c6;
+  --green-1: #0bec12;
+  --green-2: rgba(73, 191, 77, 0.8);
+  --green-3: rgba(73, 191, 77, 0.6);
+  --blue: #2188b6;
+  --red: #c54422;
+  --badge-green: #35a67b;
+  --hero: 8rem;
+  --heading1: 3.8rem;
+  --heading2: 2.8rem;
+  --heading3: 2.2rem;
+  --subheading: 1.8rem;
+  --body1: 1.6rem;
+  --body2: 1.4rem;
+  --caption: 1.2rem;
+  --weight1: 400;
+  --weight2: 500;
+  --weight3: 700;
+  --offset: 40px;
+  --gutter: 16px;
+  --border-r: 8px;
+  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --transition: 0.15s;
+  --header-height: 9rem;
+}
