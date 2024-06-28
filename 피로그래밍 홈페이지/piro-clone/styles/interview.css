@@ -18,7 +18,7 @@
     flex-direction: column;
     height: calc(100vh - 9rem);
     font-family: 'NEXON Lv1 Gothic OTF';
-    margin: 0 214.8px;
+    margin: 0 137.2px;
     padding: 0 40px;
 }
 
@@ -56,84 +56,149 @@
     right: 10px;
     cursor: pointer;
 }
-
-
-
-.container {
-    width: 80%;
-    margin: auto;
-}
-
-.header {
-    text-align: center;
-    padding: 20px 0;
-}
-
-.content {
+/* grid 형식으로 */
+.interview-content {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-gap: 16px;
+    margin-bottom: 16px;
 }
 
-.person {
-    background-color: #333;
+/* 여기서부터 list */
+.interview-list {
+    width: min(100%, 1200px);
+    padding: 0 40px;
+    background-color: #333333;
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.person img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    display: block;
-    margin: 0 auto 10px;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto;
-    gap: 10px;
-    text-align: center;
-}
-
-.grid-item {
-    text-align: center;
-}
-
-.role {
-    display: block;
-    margin-bottom: 10px;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-weight: bold;
-}
-
-.비전공자 {
-    background-color: #d9534f;
-}
-
-.전공자 {
-    background-color: #5bc0de;
-}
-
-.hamburger-button {
-    background-color: #777;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
     cursor: pointer;
-    font-size: 1.2rem;
+    position: relative;
+    margin-right: 40px;
+    margin-left: 40px;
+    flex-direction: column;
 }
 
-.passion-text {
-    text-align: center;
-    font-size: 1.2rem;
+.interview-profile-top {
+    display: flex;
+    width: 100%;
+}
+.interview-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
 }
 
-.footer {
+.interview-list:hover {
+    position: relative;
+    top: -2px;
+}
+
+.interview-image {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.interview-image>img {
+    width: 100%;
+    object-fit: contain;
+    transition: 0.3s;
+    padding: 1rem 2rem;
+}
+
+.interview-list:hover .interview-image > img {
+    transform: scale(1.1);
+}
+
+.interview-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0;
+    box-sizing: border-box;
+}
+
+.interview-info h2 {
+    font-size: 2rem;
+    font-weight: 200;
+    vertical-align: top;
+}
+
+.interview-passion {
+    display: flex;
+    width: 100%;
+
+}
+
+.interview-passion > p {
+    font-size: 1.6rem;
+
+}
+.interview-text {
     text-align: left;
-    margin-top: 20px;
+    font-size: 3rem;
+    justify-content: left;
 }
+
+.interview-tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    vertical-align: bottom;
+}
+
+.interview-tags {
+    background-color: #c54422;
+    padding: 6px 8px;
+    font-size: var(--body2);
+    border-radius: 5px;
+    color: white;
+}
+
+
+.interview-more {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.interview-more > div {
+    height: 2px;
+    background-color: rgba(236, 236, 236, 0.466);
+    transition: 0.5s;
+    z-index: 1;
+} 
+
+
+.interview-list:hover .interview-more > div:nth-of-type(1) {
+    width: 50%;
+    margin-right: auto;
+}
+
+.interview-list:hover .interview-more > div:nth-of-type(3) {
+    width: 50%;
+    margin-left: auto;
+}
+
+.interview-text {
+    text-align: left;
+    font-size: 1.2rem;
+}
+

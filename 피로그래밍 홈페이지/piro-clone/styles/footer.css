@@ -11,7 +11,7 @@
 
 footer {
     margin-top: 50px;
-    background-color: #222; 
+    background-color: #222;
     color: white;
     text-align: center;
     padding: 0;
@@ -20,7 +20,7 @@ footer {
 }
 
 .footer-top {
-    background-color: #333; 
+    background-color: #333;
     padding: 40px;
     display: flex;
     justify-content: space-between;
@@ -34,7 +34,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin: 0 214.8px;
+    margin: 0 200px 0 137.2px;
     height: 110px;
 
 }
@@ -53,12 +53,12 @@ footer {
 }
 
 .footer-top .footer-social li a,
-.footer-top .footer-social li > p{
-  display: flex;
-  gap:10px;
-  align-items: center;
-  font-family: 'NEXON Lv1 Gothic OTF';
-  font-size: 1.3rem;
+.footer-top .footer-social li>p {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-family: 'NEXON Lv1 Gothic OTF';
+    font-size: 1.3rem;
 }
 
 .footer-social-logo {
@@ -83,6 +83,7 @@ footer {
     gap: 10px;
     min-width: 300px;
 }
+
 .footer-links ul {
     list-style: none;
     padding: 0;
@@ -98,7 +99,8 @@ footer {
     margin: 0 0 0 20px;
 }
 
-.footer-links ul li > a {
+
+.footer-links ul li>a {
     color: #fff;
     text-decoration: none;
     font-size: 1.3rem;
@@ -109,7 +111,8 @@ footer {
 
 .footer-bottom {
     background-color: #333333;
-    opacity: 0.8; /* Dark gray for the bottom section */
+    opacity: 0.8;
+    /* Dark gray for the bottom section */
     padding: 16px;
 }
 
@@ -120,4 +123,3 @@ footer {
 .portfolio-list {
     margin-bottom: 20px;
 }
-
