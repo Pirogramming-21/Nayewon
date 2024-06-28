@@ -5,6 +5,11 @@
     font-style: normal;
 }
 
+/* portfolio 글자만 연두색으로 */
+.main-header--container > ul > li:nth-child(3) { 
+    color: #0BEC12;
+}
+
 #portfolio-main {
     display: flex;
     align-items: center;
@@ -12,6 +17,8 @@
     flex-direction: column;
     height: calc(100vh - 9rem);
     font-family: 'NEXON Lv1 Gothic OTF';
+    margin: 0 214.8px;
+    padding: 0 40px;
 }
 
 
@@ -25,7 +32,8 @@
     width: min(100%, 1200px);
     padding: 0 40px;
     font-family: 'NEXON Lv1 Gothic OTF';
-    margin-bottom: 16px;
+    margin-bottom: 25px;
+    margin-top: 16px;
 }
 
 
@@ -39,15 +47,16 @@
     font-style: normal;
 }
 
-
-.portfolio-top>a {
-    font-size: 1.8rem;
+.portfolio-top >a {
+    font-size: 1.6rem;
     gap: var(--gutter);
     position: absolute;
     font-style: normal;
     right: 10px;
     cursor: pointer;
 }
+
+
 
 .portfolio-list {
     width: min(100%, 1200px);
@@ -61,6 +70,8 @@
     margin-bottom: 16px;
     cursor: pointer;
     position: relative;
+    margin-right: 40px;
+    margin-left: 40px;
 }
 
 .portfolio-list:hover {

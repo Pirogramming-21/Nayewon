@@ -18,6 +18,7 @@ main {
     justify-content: center;
     align-items: center;
     height: var(--header-height);
+    font-family: 'NEXON Lv1 Gothic OTF';
 }
 .main-header--container {
     width: min(100%, 1200px);
@@ -45,7 +46,7 @@ main {
     justify-content: center;
     text-align: center;
     gap: var(--gutter);
-    font-family: var(--Nexon);
+    font-family: 'NEXON Lv1 Gothic OTF';
 }
 
 .main-text > h1 {
