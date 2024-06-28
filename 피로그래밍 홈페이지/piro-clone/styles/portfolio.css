@@ -13,7 +13,6 @@
 #portfolio-main {
     display: flex;
     align-items: center;
-    height: var(--header-height);
     flex-direction: column;
     height: calc(100% - 9rem);
     font-family: 'NEXON Lv1 Gothic OTF';
