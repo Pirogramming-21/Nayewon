@@ -169,48 +169,7 @@
 }
 
 
-/* @media screen and (max-width: 700px){
-    .project-container.project-modal--header {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: var(--gutter);
-      padding-top: var(--offset);
-  
-    }
-    .project-modal--header .project-content--name{
-      margin-bottom: 10px;
-    }
-    .project-modal--header .project-pic {
-      width: min(75%, 250px);
-      height: 160px;
-    }
-    .project-modal--header .project-content--team {
-      display: grid;
-      grid-template-columns: repeat(3, 60px);
-      justify-content: center;
-    }
-  }
 
-/* @media screen and (max-width: 700px){
-    .portfolio-list  {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: var(--gutter);
-      padding-top: var(--offset);
-  
-    }
-    .portfolio-image {
-      width: min(75%, 250px);
-      height: 160px;
-    }
-    .tags {
-      display: grid;
-      grid-template-columns: repeat(3, 60px);
-      justify-content: center;
-    }
-  } */
 
   @media screen and (max-width: 700px){
     .portfolio-list  {
@@ -235,5 +194,3 @@
     }
   }
 
-/* 1510 */
-  /* portfolio-main */
