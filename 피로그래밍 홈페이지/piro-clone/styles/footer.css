@@ -1,0 +1,116 @@
+/* footer.css */
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* footer.css */
+
+
+footer {
+    background-color: #222; 
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position : relative;
+}
+
+.footer-top {
+    background-color: #333; 
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 0 214.8px;
+    height: 110px;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    gap: 1rem;
+    min-width: 300px;
+}
+
+.footer-top .footer-social li a,
+.footer-top .footer-social li > p{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+.footer-social-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: black;
+    position: relative;
+}
+
+.footer-social-logo img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    min-width: 300px;
+}
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+.footer-links ul li {
+    margin: 0 0 0 20px;
+}
+
+.footer-links ul li > a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-family: 'NEXON Lv1 Gothic OTF';
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-bottom {
+    background-color: #333333;
+    opacity: 0.8; /* Dark gray for the bottom section */
+    padding: 16px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.portfolio-list {
+    margin-bottom: 20px;
+}
+

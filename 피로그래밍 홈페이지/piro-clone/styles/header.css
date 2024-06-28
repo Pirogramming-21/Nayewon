@@ -19,6 +19,7 @@ main {
     align-items: center;
     height: var(--header-height);
     font-family: 'NEXON Lv1 Gothic OTF';
+    margin: 0 214.8px;
 }
 .main-header--container {
     width: min(100%, 1200px);
