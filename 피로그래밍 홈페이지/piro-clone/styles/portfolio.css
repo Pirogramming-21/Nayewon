@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#portfolio-main {
+    display: flex;
+    align-items: center;
+    height: var(--header-height);
+    flex-direction: column;
+    height: calc(100vh - 9rem);
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+
+.portfolio-top {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: min(100%, 1200px);
+    padding: 0 40px;
+    font-family: 'NEXON Lv1 Gothic OTF';
+    margin-bottom: 16px;
+}
+
+
+.portfolio-text-center {
+    font-size: 2.2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    gap: var(--gutter);
+    font-style: normal;
+}
+
+
+.portfolio-top>a {
+    font-size: 1.8rem;
+    gap: var(--gutter);
+    position: absolute;
+    font-style: normal;
+    right: 10px;
+    cursor: pointer;
+}
+
+.portfolio-list {
+    width: min(100%, 1200px);
+    padding: 0 40px;
+    background-color: #333333;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+.portfolio-list:hover {
+    position: relative;
+    top: -2px;
+}
+
+.portfolio-image {
+    width: 150px;
+    height: 110px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio-image>img {
+    width: 100%;
+    object-fit: contain;
+    transition: 0.3s;
+    padding: 1rem 2rem;
+}
+
+.portfolio-list:hover .portfolio-image > img {
+    transform: scale(1.1);
+}
+
+.portfolio-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0;
+    box-sizing: border-box
+}
+
+.portfolio-info h2 {
+    font-size: var(--heading3);
+    font-weight: 900;
+    vertical-align: top;
+}
+
+.portfolio-info>p {
+    font-size: 1.6rem;
+    color: #c6c6c6;
+    line-height: 2rem;
+    margin-top: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    vertical-align: bottom;
+}
+
+.tags li {
+    background-color: rgba(236, 236, 236, 0.466);
+    padding: 6px 8px;
+    font-size: var(--body2);
+    border-radius: 5px;
+    color: black;
+}
+
+.portfolio-info li.leader {
+    background-color: var(--blue);
+    color: white;
+}
+
+.portfolio-more {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.portfolio-more > div {
+    height: 2px;
+    background-color: rgba(236, 236, 236, 0.466);
+    transition: 0.5s;
+    z-index: 1;
+} 
+
+
+.portfolio-list:hover .portfolio-more > div:nth-of-type(1) {
+    width: 50%;
+    margin-right: auto;
+}
+
+.portfolio-list:hover .portfolio-more > div:nth-of-type(3) {
+    width: 50%;
+    margin-left: auto;
+}
+
