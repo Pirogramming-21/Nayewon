@@ -10,12 +10,13 @@
 
 
 footer {
+    margin-top: 50px;
     background-color: #222; 
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 0;
     width: 100%;
-    position : relative;
+    position: relative;
 }
 
 .footer-top {
@@ -31,27 +32,33 @@ footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     margin: 0 214.8px;
     height: 110px;
+
 }
 
 .footer-social {
+
+    min-width: 300px;
+    height: 100%;
+}
+
+.footer-social ul {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-around;
-    gap: 1rem;
-    min-width: 300px;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .footer-top .footer-social li a,
 .footer-top .footer-social li > p{
   display: flex;
-  gap: 10px;
+  gap:10px;
   align-items: center;
   font-family: 'NEXON Lv1 Gothic OTF';
+  font-size: 1.3rem;
 }
 
 .footer-social-logo {

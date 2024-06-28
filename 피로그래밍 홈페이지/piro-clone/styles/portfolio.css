@@ -15,7 +15,7 @@
     align-items: center;
     height: var(--header-height);
     flex-direction: column;
-    height: calc(100vh - 9rem);
+    height: calc(100% - 9rem);
     font-family: 'NEXON Lv1 Gothic OTF';
     margin: 0 214.8px;
     padding: 0 40px;
@@ -172,3 +172,26 @@
     margin-left: auto;
 }
 
+
+@media screen and (max-width: 700px){
+    .project-container.project-modal--header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: var(--gutter);
+      padding-top: var(--offset);
+  
+    }
+    .project-modal--header .project-content--name{
+      margin-bottom: 10px;
+    }
+    .project-modal--header .project-pic {
+      width: min(75%, 250px);
+      height: 160px;
+    }
+    .project-modal--header .project-content--team {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      justify-content: center;
+    }
+  }

@@ -12,6 +12,17 @@ body {
 main {
     min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.53);
+    margin-top: 9rem;
+}
+/* 스크롤 상관 없이 헤더 고정 */
+.fixed-header {
+    position: fixed;
+    width: 100%;
+    height: 9rem;
+    top: 0;
+    z-index: 999;
+    /* 그라데이션 효과 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.8) 70%, rgba(0, 0, 0, 0) 100%);
 }
 #main-header {
     display: flex;
