@@ -70,6 +70,7 @@ function createElement(item) {
     return li;
   }
   
+//   container 관리의 효율성을 위해 다른 방식으로 작성할 수 있음. 
 //   // Handle button click
 //   function onButtonClick(event, items) {
 //     const target = event.target;
