@@ -1,6 +1,7 @@
 let timer;
 let milliseconds = 0;
 let isRunning = false;
+let isCountdown = false;
 
 const display = document.querySelector('.display-number');
 const startButton = document.getElementById('start');
@@ -13,17 +14,30 @@ const topCheckIcon = topRecordButton.querySelector('.ri-check-line');
 
 function updateDisplay() {
     let secs = Math.floor(milliseconds / 1000);
-    let ms = Math.floor((milliseconds % 1000) / 10); // 2자리 밀리초 적용
+    let ms = Math.floor((milliseconds % 1000) / 10); // 2자리 밀리초
     display.textContent = `${secs.toString().padStart(2, '0')}:${ms.toString().padStart(2, '0')}`;
 }
 
 function startTimer() {
     if (!isRunning) {
         isRunning = true;
-        timer = setInterval(() => {
-            milliseconds += 10;
-            updateDisplay();
-        }, 10);
+        if (isCountdown) {
+            timer = setInterval(() => {
+                if (milliseconds <= 0) {
+                    clearInterval(timer);
+                    isRunning = false;
+                    alert('Time is up!');
+                } else {
+                    milliseconds -= 10;
+                    updateDisplay();
+                }
+            }, 10);
+        } else {
+            timer = setInterval(() => {
+                milliseconds += 10;
+                updateDisplay();
+            }, 10);
+        }
     }
 }
 
@@ -31,7 +45,9 @@ function stopTimer() {
     if (isRunning) {
         isRunning = false;
         clearInterval(timer);
-        recordLap();
+        if (!isCountdown) {
+            recordLap();
+        }
     }
 }
 
@@ -40,7 +56,7 @@ function resetTimer() {
     clearInterval(timer);
     milliseconds = 0;
     updateDisplay();
-    // reset 눌렀을 때 lap-lists는 변함 없게
+    // reset 버튼 눌렀을 때 lap-lists는 변함 없음
 }
 
 function recordLap() {
@@ -48,7 +64,7 @@ function recordLap() {
     lapItem.className = 'lap-list';
     lapItem.innerHTML = `
         <button class="record-button">
-            <i class="ri-check-line"></i> <!-- 체크 버튼이 보이도록 -->
+            <i class="ri-check-line"></i> <!-- 체크 버튼이 보이도록 변경 -->
             <div class="record-button-inner"></div>
         </button>
         <h2>${display.textContent}</h2>
@@ -94,7 +110,7 @@ function clearLaps() {
         item.closest('.lap-list').remove();
     });
 
-    // Record 버튼의 체크 상태 초기화
+    // Record 버튼의 체크 상태를 초기화
     topCheckIcon.style.display = 'none';
 }
 
@@ -113,7 +129,7 @@ topRecordButton.addEventListener('click', () => {
         }
     });
 
-    // 전체 버튼의 상태가 변경 후 topRecordButton의 상태 업데이트
+    // 전체 버튼의 상태가 변경되었으므로 topRecordButton의 상태를 업데이트
     if (topCheckIcon.style.display === 'none') {
         topCheckIcon.style.display = 'inline';
     } else {
@@ -125,3 +141,14 @@ startButton.addEventListener('click', startTimer);
 stopButton.addEventListener('click', stopTimer);
 resetButton.addEventListener('click', resetTimer);
 clearLapsButton.addEventListener('click', clearLaps);
+
+display.addEventListener('click', () => {
+    const inputTime = prompt("타이머 시간을 입력하세요 (초:밀리초 형식, 예: 01:00)");
+    if (inputTime) {
+        const [inputSecs, inputMs] = inputTime.split(':').map(Number);
+        milliseconds = (inputSecs * 1000) + (inputMs * 10);
+        isCountdown = true;
+        updateDisplay();
+    }
+});
+
