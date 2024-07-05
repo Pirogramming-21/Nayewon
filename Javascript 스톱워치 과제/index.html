@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>피로그래밍 스톱워치</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="stopwatch-main">
+        <div class="stopwatch-text">
+            <i class="ri-timer-fill"></i>
+            <h1>피로그래밍 스톱워치</h1>
+        </div>
+        <div id="stopwatch-container">
+            <div id="display">
+                <div class="display-number">00:00</div>
+            </div>
+            <div id="buttons">
+                <button id="start">start</button>
+                <button id="stop">stop</button>
+                <button id="reset">reset</button>
+            </div>
+        </div>
+        <div class="lap-container">
+            <div class="lap-container-top">
+                <button id="record-button">
+                    <i class="ri-check-line" style="display: none;"></i>
+                </button>
+                <h2>구간 기록</h2>
+                <button id="clear-laps-button"><i class="ri-delete-bin-7-fill"></i></button>
+            </div>
+            <div class="lap-lists">
+                <ul id="lap-lists-ul">
+                    <!-- Initial lap list is removed for initialization purpose -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
