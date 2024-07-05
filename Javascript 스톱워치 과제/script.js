@@ -8,10 +8,12 @@ const stopButton = document.getElementById('stop');
 const resetButton = document.getElementById('reset');
 const lapsContainer = document.querySelector('.lap-lists ul');
 const clearLapsButton = document.getElementById('clear-laps-button');
+const topRecordButton = document.getElementById('record-button');
+const topCheckIcon = topRecordButton.querySelector('.ri-check-line');
 
 function updateDisplay() {
     let secs = Math.floor(milliseconds / 1000);
-    let ms = Math.floor((milliseconds % 1000) / 10); // 2자리 밀리초로 변경
+    let ms = Math.floor((milliseconds % 1000) / 10); // 2자리 밀리초 적용
     display.textContent = `${secs.toString().padStart(2, '0')}:${ms.toString().padStart(2, '0')}`;
 }
 
@@ -38,7 +40,7 @@ function resetTimer() {
     clearInterval(timer);
     milliseconds = 0;
     updateDisplay();
-    // lap-lists는 초기화하지 않음
+    // reset 눌렀을 때 lap-lists는 변함 없게
 }
 
 function recordLap() {
@@ -46,7 +48,7 @@ function recordLap() {
     lapItem.className = 'lap-list';
     lapItem.innerHTML = `
         <button class="record-button">
-            <i class="ri-check-line"></i> <!-- 체크 버튼이 보이도록 변경 -->
+            <i class="ri-check-line"></i> <!-- 체크 버튼이 보이도록 -->
             <div class="record-button-inner"></div>
         </button>
         <h2>${display.textContent}</h2>
@@ -54,16 +56,36 @@ function recordLap() {
     lapsContainer.appendChild(lapItem);
 
     // Add event listener for the record button
-    lapItem.querySelector('.record-button').addEventListener('click', (e) => {
-        const recordButtonInner = e.target.closest('.record-button').querySelector('.record-button-inner');
-        recordButtonInner.classList.toggle('recorded');
-        const checkIcon = e.target.closest('.record-button').querySelector('.ri-check-line');
-        if (recordButtonInner.classList.contains('recorded')) {
-            checkIcon.style.display = 'inline';
-        } else {
-            checkIcon.style.display = 'none';
-        }
-    });
+    const recordButton = lapItem.querySelector('.record-button');
+    recordButton.addEventListener('click', handleRecordButtonClick);
+
+    // Record 버튼 전체 클릭 상태 업데이트
+    updateTopRecordButtonState();
+}
+
+function handleRecordButtonClick(e) {
+    const recordButtonInner = e.target.closest('.record-button').querySelector('.record-button-inner');
+    recordButtonInner.classList.toggle('recorded');
+    const checkIcon = e.target.closest('.record-button').querySelector('.ri-check-line');
+    if (recordButtonInner.classList.contains('recorded')) {
+        checkIcon.style.display = 'inline';
+    } else {
+        checkIcon.style.display = 'none';
+    }
+
+    // Record 버튼 전체 클릭 상태 업데이트
+    updateTopRecordButtonState();
+}
+
+function updateTopRecordButtonState() {
+    const allButtons = lapsContainer.querySelectorAll('.record-button-inner');
+    const allRecorded = Array.from(allButtons).every(button => button.classList.contains('recorded'));
+
+    if (allRecorded) {
+        topCheckIcon.style.display = 'inline';
+    } else {
+        topCheckIcon.style.display = 'none';
+    }
 }
 
 function clearLaps() {
@@ -71,7 +93,33 @@ function clearLaps() {
     recordedItems.forEach(item => {
         item.closest('.lap-list').remove();
     });
+
+    // Record 버튼의 체크 상태 초기화
+    topCheckIcon.style.display = 'none';
 }
+
+topRecordButton.addEventListener('click', () => {
+    const allButtons = lapsContainer.querySelectorAll('.record-button');
+    allButtons.forEach(button => {
+        const recordButtonInner = button.querySelector('.record-button-inner');
+        const checkIcon = button.querySelector('.ri-check-line');
+
+        if (topCheckIcon.style.display === 'none') {
+            recordButtonInner.classList.add('recorded');
+            checkIcon.style.display = 'inline';
+        } else {
+            recordButtonInner.classList.remove('recorded');
+            checkIcon.style.display = 'none';
+        }
+    });
+
+    // 전체 버튼의 상태가 변경 후 topRecordButton의 상태 업데이트
+    if (topCheckIcon.style.display === 'none') {
+        topCheckIcon.style.display = 'inline';
+    } else {
+        topCheckIcon.style.display = 'none';
+    }
+});
 
 startButton.addEventListener('click', startTimer);
 stopButton.addEventListener('click', stopTimer);

@@ -175,7 +175,7 @@ body {
 .lap-list {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; /* 중앙 정렬 */
+    justify-content: space-between; 
     align-items: center;
     margin: 20px 0;
     padding: 0 220px 0 20px;
@@ -185,11 +185,13 @@ body {
 
 .lap-list h2 {
     font-size: 20px;
-    text-align: center; /* 숫자 가운데 정렬 */
+    text-align: center; 
 }
 
 .ri-check-line {
     display: none;
+    font-weight: bold;
+    font-size: 22px;
 }
 
 .recorded .ri-check-line {
