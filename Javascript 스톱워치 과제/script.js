@@ -27,7 +27,9 @@ function startTimer() {
                     clearInterval(timer);
                     isRunning = false;
                     isCountdown = false;
-                    alert('Time is up!');
+                    milliseconds = 0; // Ensure it's exactly 00:00
+                    updateDisplay(); // 00:00으로 표시
+                    setTimeout(() => alert('Time is up!'), 10);
                 } else {
                     milliseconds -= 10;
                     updateDisplay();

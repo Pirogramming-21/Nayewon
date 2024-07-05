@@ -39,6 +39,7 @@ body {
 .stopwatch-text h1 {
     font-size: 24px;
     font-weight: 900;
+    margin-left: 5px;
 }
 
 #stopwatch-container {
@@ -47,18 +48,19 @@ body {
     padding: 40px 30px 30px 30px;
     margin: 0 50px;
     border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.1);
     height: 160px;
 }
 
 #display {
     background-color: white;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     border-radius: 20px;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 10px;
 }
 
 .display-number {
@@ -77,9 +79,9 @@ body {
     font-size: 16px;
     margin: 5px;
     border: none;
-    border-radius: 20px;
-    background-color: #ffffffce;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    background-color: #ffffffa2;
+    box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-family: 'GmarketSansMedium';
     height: 60px;
@@ -100,7 +102,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: transparent;
     outline: none;
     border: none;
@@ -120,13 +121,18 @@ body {
 
 .lap-container-top h2 {
     font-size: 20px;
+    font-weight: bold;
 }
 
 .lap-container-top button {
     background-color: transparent;
     border: none;
     outline: none;
-    font-size: 20px;
+    font-size: 25px;
+}
+
+.ri-delete-bin-7-fill:hover{
+    color: rgba(244, 65, 20, 0.986);
 }
 
 #record-button {
@@ -178,7 +184,7 @@ body {
     justify-content: space-between; 
     align-items: center;
     margin: 20px 0;
-    padding: 0 220px 0 20px;
+    padding: 0 218px 0 20px;
 }
 
 
@@ -186,6 +192,7 @@ body {
 .lap-list h2 {
     font-size: 20px;
     text-align: center; 
+    letter-spacing: 2px;
 }
 
 .ri-check-line {
