@@ -14,7 +14,7 @@ const topCheckIcon = topRecordButton.querySelector('.ri-check-line');
 
 function updateDisplay() {
     let secs = Math.floor(milliseconds / 1000);
-    let ms = Math.floor((milliseconds % 1000) / 10); // 2자리 밀리초
+    let ms = Math.floor((milliseconds % 1000) / 10); // 2자리 밀리초로 변경
     display.textContent = `${secs.toString().padStart(2, '0')}:${ms.toString().padStart(2, '0')}`;
 }
 
@@ -26,6 +26,7 @@ function startTimer() {
                 if (milliseconds <= 0) {
                     clearInterval(timer);
                     isRunning = false;
+                    isCountdown = false;
                     alert('Time is up!');
                 } else {
                     milliseconds -= 10;
@@ -56,7 +57,7 @@ function resetTimer() {
     clearInterval(timer);
     milliseconds = 0;
     updateDisplay();
-    // reset 버튼 눌렀을 때 lap-lists는 변함 없음
+    isCountdown = false; // 초기화하여 타이머 기능을 해제
 }
 
 function recordLap() {
@@ -75,7 +76,7 @@ function recordLap() {
     const recordButton = lapItem.querySelector('.record-button');
     recordButton.addEventListener('click', handleRecordButtonClick);
 
-    // Record 버튼 전체 클릭 상태 업데이트
+    // Record 버튼 전체 클릭 상태를 갱신
     updateTopRecordButtonState();
 }
 
@@ -89,7 +90,7 @@ function handleRecordButtonClick(e) {
         checkIcon.style.display = 'none';
     }
 
-    // Record 버튼 전체 클릭 상태 업데이트
+    // Record 버튼 전체 클릭 상태를 갱신
     updateTopRecordButtonState();
 }
 
@@ -129,7 +130,7 @@ topRecordButton.addEventListener('click', () => {
         }
     });
 
-    // 전체 버튼의 상태가 변경되었으므로 topRecordButton의 상태를 업데이트
+    // 전체 버튼의 상태가 변경되었으므로 topRecordButton의 상태를 갱신
     if (topCheckIcon.style.display === 'none') {
         topCheckIcon.style.display = 'inline';
     } else {
@@ -151,4 +152,3 @@ display.addEventListener('click', () => {
         updateDisplay();
     }
 });
-
