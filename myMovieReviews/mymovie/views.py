@@ -15,6 +15,7 @@ def review_create(request):
     if request.method=="POST":
         Reviewlist.objects.create(
             title=request.POST["title"],
+            year=request.POST["year"],
             genre=request.POST["genre"],
             director=request.POST["director"],
             actor=request.POST["actor"],
@@ -35,14 +36,25 @@ def review_detail(request, pk):
 def review_update(request, pk):
     review=Reviewlist.objects.get(id=pk)
     if request.method=="POST":
-        title=request.POST["title"],
-        genre=request.POST["genre"],
-        director=request.POST["director"],
-        actor=request.POST["actor"],
-        time=request.POST["time"],
-        rating=request.POST["rating"],
-        content=request.POST["content"]
+        title = request.POST.get("title")
+        genre = request.POST.get("genre")
+        director = request.POST.get("director")
+        actor = request.POST.get("actor")
+        time = request.POST.get("time")
+        rating = request.POST.get("rating")
+        content = request.POST.get("content")
+        year = request.POST.get("year")
         
+        # 가져온 데이터로 review 객체 업데이트
+        review.title = title
+        review.genre = genre
+        review.director = director
+        review.actor = actor
+        review.time = time
+        review.rating = rating
+        review.content = content
+        review.year = year        
+
         review.save()
         
         return redirect(f"/{pk}")

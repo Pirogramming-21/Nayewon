@@ -1,6 +1,6 @@
 <h1><a href="/"><h1>my Movie reviews</h1></a></h1>
 
-<a href="/{{review.id}}/update"> 수정 </a>
+
 {{review.title}}
 <p>개봉일 {{ review.year }}</p>
 <p>장르 {{ review.genre }}</p>
@@ -9,9 +9,9 @@
 <p>주연 {{ review.actor }}</p>
 <p>장르 {{ review.genre }}</p>
 <p>러닝타임 {{ review.time }}</p>
-{{review.content}}
+{{review.content}}<br/>
 
-
+<a href="/{{review.id}}/update"> 수정 </a>
 <form action="/{{review.id}}/delete" method="post">
     {% csrf_token %}
     <input type="submit" value="삭제하기">

@@ -2,18 +2,34 @@
 
 <form action="/create" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <input name="title" placeholder="제목"  /> <br/>
-    <input name="director" placeholder="감독" /> <br/>
-    <input name="year" placeholder="개봉일" /> <br/>
-    <input name="actor" placeholder="주연" /> <br/>
-    <input name="genre" placeholder="장르" /> <br/>
-    <input name="rating" placeholder="별점" /> <br/>
-    <input name="time" placeholder="러닝타임" /> <br/>
-    <textarea name="content" cols="30" rows="10" placeholder="내용"></textarea>
+    <label>제목
+      <input name="title" placeholder="제목"  /> <br/>
+    </label>
+    <label>감독
+      <input name="director" placeholder="감독" /> <br/>
+    </label>
+    <label>개봉일
+      <input name="year" placeholder="개봉일" /> <br/>
+    </label>
+    <label>주연
+      <input name="actor" placeholder="주연" /> <br/>
+    </label>
+    <label>장르
+      <input name="genre" placeholder="장르" /> <br/>
+    </label>
+    <label>별점
+      <input name="rating" placeholder="별점" /> <br/>
+    </label>
+    <label>러닝타임
+      <input name="time" placeholder="러닝타임" /> <br/>
+    </label>
+    <label>리뷰<br/>
+      <textarea name="content" cols="30" rows="10" placeholder="내용"></textarea>
+    </label>
     <div>
       <input type="submit" value="작성완료">
     </div>
 </form>
 
-<a href="/{{review.id}}/update"> 수정 </a>
+
 
