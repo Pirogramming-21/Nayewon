@@ -6,11 +6,12 @@
 
 {% for review in reviews %}
     <div>
-        <a href="/{{review.id}}">{{ review.title }}</a>
-        {{ review.year }}
-        {{ review.genre }}
-        {{ review.rating }}
-        {{ review.image }}
+        <a href="/{{review.id}}"> {{ review.title }}</a>
+        <p>개봉일 {{ review.year }}</p>
+        <p>장르 {{ review.genre }}</p>
+        <p>별점 {{ review.rating }}</p>
+        {{review.image}}
+        <img src="{{review_create.image.url}}" alt="{{review_create.image}}">
     </div>
 {% endfor %}
 

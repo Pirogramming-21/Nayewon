@@ -45,8 +45,11 @@ def review_update(request, pk):
         
         review.save()
         
-        return redirect("/")
-    return render(request, 'review_update.html')
+        return redirect(f"/{pk}")
+    context={
+        "review":review
+    }
+    return render(request, 'review_update.html', context)
 
 def review_delete(request, pk):
     if request.method=="POST":
