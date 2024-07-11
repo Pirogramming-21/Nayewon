@@ -1,0 +1,22 @@
+
+<h1><a href="/"><h1>my Movie reviews</h1></a></h1>
+<a href="/create">Add a new review</a>
+
+
+
+{% for review in reviews %}
+    <div>
+        <a href="/detail">{{ review.title }}</a>
+        {{ review.year }}
+        {{ review.genre }}
+        {{ review.rating }}
+        {{ review.image }}
+    </div>
+{% endfor %}
+
+
+
+
+
+
+
