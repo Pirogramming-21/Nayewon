@@ -31,3 +31,25 @@ def review_detail(request, pk):
       "review":review
    }
    return render(request, 'review_detail.html', context)
+
+def review_update(request, pk):
+    review=Reviewlist.objects.get(id=pk)
+    if request.method=="POST":
+        title=request.POST["title"],
+        genre=request.POST["genre"],
+        director=request.POST["director"],
+        actor=request.POST["actor"],
+        time=request.POST["time"],
+        rating=request.POST["rating"],
+        content=request.POST["content"]
+        
+        review.save()
+        
+        return redirect("/")
+    return render(request, 'review_update.html')
+
+def review_delete(request, pk):
+    if request.method=="POST":
+        post=Reviewlist.objects.get(id=pk)
+        post.delete()
+    return redirect("/")

@@ -1,5 +1,12 @@
 <h1><a href="/"><h1>my Movie reviews</h1></a></h1>
 
+<a href="/{{review.id}}/update"> 수정 </a>
+
+<form action="/{{review.id}}/delete" method="post">
+    {% csrf_token %}
+    <input type="submit" value="삭제하기">
+</form>
+
 
 <!-- {% for review in reviews %}
     <div>
@@ -8,8 +15,5 @@
     </div>
 {% endfor %}
 
-<form action="/{{review.id}}/delete" method="post">
-    {% csrf_token %}
-    <input type="submit" value="삭제하기">
-  </form> -->
+
 
