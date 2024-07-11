@@ -26,7 +26,7 @@ def review_create(request):
     return render(request, 'review_create.html')
 
 def review_detail(request, pk):
-   review=Reviewlist.objects.filter(post=pk)
+   review=Reviewlist.objects.get(id=pk)
    context={
       "review":review
    }

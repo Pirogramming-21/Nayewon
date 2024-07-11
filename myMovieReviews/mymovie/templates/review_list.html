@@ -6,7 +6,7 @@
 
 {% for review in reviews %}
     <div>
-        <a href="/detail">{{ review.title }}</a>
+        <a href="/{{review.id}}">{{ review.title }}</a>
         {{ review.year }}
         {{ review.genre }}
         {{ review.rating }}
