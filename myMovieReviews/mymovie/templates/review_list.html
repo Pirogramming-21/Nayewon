@@ -12,6 +12,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Ga+Maamli&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbit&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&display=swap');
+</style>
+
     </style>
 </head>
 
@@ -33,13 +38,24 @@
                 {% block content %}
                 {% for review in reviews %}
                 <div class="col-md-8">
-                    <a href="/{{review.id}}"> <i class="ri-navigation-fill"></i>{{ review.title }}</a>
-                    <p>개봉일 {{ review.year }}</p>
-                    <p>장르 {{ review.genre }}</p>
-                    <p>별점 {{ review.rating }}</p>
                     {% if review.image %}
                     <img src="{{ review.image.url }}" alt=" Movie Poster">
                     {% endif %}
+                    <div class="col-content">
+                        <a href="/{{review.id}}" class="title"> <i class="ri-navigation-fill"></i> {{ review.title }}</a>
+                        <div class="col-content-2">
+                            <div class="col-space">
+                                <div><p>개봉일|</p>{{ review.year }}</div>
+                                <div><p>장르|</p>{{ review.genre }}<br/></div>
+                            </div>
+                            <div class="col-space">
+                                <div class="">
+                                    <p>별점|</p>{{ review.rating }}
+                                </div>
+                                <a href="/{{review.id}}" ><p>🍿🥤</p></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {% endfor %}
                 {% endblock %}
