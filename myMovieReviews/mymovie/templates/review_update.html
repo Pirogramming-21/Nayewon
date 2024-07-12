@@ -56,17 +56,10 @@
                   </label>
                   <label class="label2" value="{{review.genre}}">장르
                     <select name="genre" id="input2">
-                      <option value="action">Action</option>
-                      <option value="comedy">Comedy</option>
-                      <option value="drama">Drama</option>
-                      <option value="horror">Horror</option>
-                      <option value="romance">Romance</option>
-                      <option value="sci-fi">Sci-Fi</option>
-                      <option value="sci-fi">documentary</option>
-                      <option value="sci-fi">animation</option>
-                      <option value="sci-fi">disaster</option>
-                      <option value="sci-fi">art</option>
-                    </select> <br/>
+                      {% for key, value in review.GENRE_CHOICES %}
+                      <option value="{{ key }}" {% if review.genre == key %}selected{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </select> <br />
                   </label>
                   <label class="label2">별점
                     <input id="input2" name="rating" placeholder="별점" value="{{review.rating}}" /> <br/>
@@ -77,10 +70,7 @@
                   <label class="label3">리뷰<br/>
                     <textarea id="input3" name="content" cols="30" rows="10" placeholder="내용">{{review.content}}</textarea>
                   </label>
-                  <label class="label5">사진 업로드
-                    <input id="input5" type="file" name="image" accept="image/*"><br>
-                  </label>
-                  <div>
+                  <div class="submit-btn">
                     <input id="input6" type="submit" value="Save">
                   </div>
                 </form>
@@ -90,7 +80,6 @@
     </div>
     <div class="footer"></div>
 </body>
-
 </html>
 
 
@@ -98,56 +87,6 @@
 
 
 
-<!-- 
 
 
 
-
-
-
-
-<form action="/{{review.id}}/update" method="post">
-  {% csrf_token %}
-    <label>제목
-      <input name="title" placeholder="제목" value="{{review.title}}" /> <br/>
-    </label>
-    <label>감독
-      <input name="director" placeholder="감독" value="{{review.director}}"/> <br/>
-    </label>
-    <label>개봉일
-      <input name="year" placeholder="개봉일"  value="{{review.year}}"/> <br/>
-    </label>
-    <label>주연
-      <input name="actor" placeholder="주연" value="{{review.actor}}"/> <br/>
-    </label>
-    <label>장르
-      <select name="genre">
-        <option value="action">Action</option>
-        <option value="comedy">Comedy</option>
-        <option value="drama">Drama</option>
-        <option value="horror">Horror</option>
-        <option value="romance">Romance</option>
-        <option value="Sci-Fi">Sci-Fi</option>
-        <option value="documentary">documentary</option>
-        <option value="animation">animation</option>
-        <option value="disaster">disaster</option>
-        <option value="art">art</option>
-      </select> <br/>
-    </label>
-    <label>별점
-      <input name="rating" placeholder="별점" value="{{review.rating}}"/> <br/>
-    </label>
-    <label>러닝타임
-      <input name="time" placeholder="러닝타임" value="{{review.time}}"/> <br/>
-    </label>
-    <label>리뷰<br/>
-      <textarea name="content" cols="30" rows="10" placeholder="내용">{{review.content}}</textarea>
-    </label>
-    <label>사진 업로드
-      <input type="file" name="image" accept="image/*">
-    </label>
-    
-    <div class="">
-      <input type="submit" value="Save">
-    </div>
-</form> -->

@@ -37,13 +37,6 @@ body {
     text-decoration: none;
 }
 
-/* 📽️ 🎞️ 🎥 ✏️ Add a new review ✏️✒️*/
-.page-header a:nth-child(1), .page-header a:nth-child(2) {
-    color: #EDEBFA;
-    font-family: "Ga Maamli", sans-serif;
-    text-decoration-line: none;
-    font-style: none;
-}
 
 .page-header a h1 {
     /* font-family: "Ga Maamli", sans-serif; */
@@ -57,16 +50,17 @@ body {
     color:#a861e6;
 }
 
-.page-header p:hover {
+.plus p:hover {
     text-decoration: none;
     text-decoration-line: none;
     color:white;
 }
 
-.page-header i:hover {
+.plus i:hover {
     text-decoration: none;
     text-decoration-line: none;
     color:white;
+    transform: scale(1.5);
 }
 
 .page-header a:nth-child(2) {

@@ -17,6 +17,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin-top: 20px;
+    gap: 70px;
 }
 
 
@@ -27,8 +28,14 @@
     border-radius: 10px;
 }
 
+.detail-top-left img:hover {
+    transform: scale(1.1);
+}
+
+
 .detail-bottom {
     margin-top: 30px;
+    margin-bottom: 18px;
 }
 
 
@@ -41,31 +48,14 @@
     display: flex;
     align-items: center;
     margin-top: 7px;
-    padding: 0 0 5px 10px;
+    padding: 10px 20px 10px 20px;
 }
 
 .review-content p {
     text-align: start;
 }
 
-#input7 {
-    background-color: #e9d4ffb6;
-    border-radius: 10px;
-    color:black;
-    margin-top: 40px;
-    height: 55px;
-    width: 150px;
-    box-shadow: 5px 5px 5px #a861e6;
-    border: none;
-    outline: none;
-    font-size: 20px;
-    position: relative;
-}
 
-#input7:hover {
-    transform: scale(1.1);
-    background-color:#caa1ef;
-}
 
 .delete-btn {
     width: 100%;
@@ -74,13 +64,13 @@
 }
 
 .detail-top-right {
-    width: 440px;
+    width: 100%;
 }
 
 
 
 .detail1 {
-    width: 400px;
+    width: 420px;
     border-radius: 5px;
     border: 5px solid #e9d4ff;
     display: flex;

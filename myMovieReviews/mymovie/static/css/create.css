@@ -105,7 +105,7 @@
 #input3 {
     height: auto;
     width: 100%;
-    padding: 5px 0 0 10px;
+    padding: 5px 20px 20px 10px;
 }
 
 #input5 {
@@ -124,15 +124,14 @@
     background-color: #e9d4ffb6;
     border-radius: 10px;
     color:black;
-    margin-top: 40px;
+    margin-top: 20px;
     height: 55px;
     width: 150px;
     box-shadow: 5px 5px 5px #a861e6;
     border: none;
     outline: none;
     font-size: 20px;
-    position: absolute;
-    right: 60px;
+    position: relative;
 }
 
 #input6:hover {
@@ -147,4 +146,30 @@
 
 #label5 {
     display: none;
+}
+
+.submit-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#input7 {
+    background-color: #e9d4ffb6;
+    margin-top: 40px;
+    border-radius: 10px;
+    color:black;
+    height: 55px;
+    width: 150px;
+    box-shadow: 5px 5px 5px #a861e6;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    position: absolute;
+    right: 60px;
+}
+
+#input7:hover {
+    transform: scale(1.1);
+    background-color:#caa1ef;
 }

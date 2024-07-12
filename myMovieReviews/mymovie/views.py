@@ -23,7 +23,7 @@ def review_create(request):
             time=request.POST["time"],
             rating=request.POST["rating"],
             content=request.POST["content"],
-            image=image
+            image = request.FILES.get("imgfile")
         )
         return redirect("/")
     return render(request, 'review_create.html')
@@ -46,7 +46,7 @@ def review_update(request, pk):
         rating = request.POST.get("rating")
         content = request.POST.get("content")
         year = request.POST.get("year")
-        imgfile = request.FILES.get("imgfile")
+        image = request.FILES.get("imgfile")
         
         # 가져온 데이터로 review 객체 업데이트
         review.title = title
@@ -57,7 +57,8 @@ def review_update(request, pk):
         review.rating = rating
         review.content = content
         review.year = year      
-        imgfile=imgfile 
+        if image:
+            review.image = image
 
         review.save()
         
