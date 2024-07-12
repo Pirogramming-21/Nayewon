@@ -1,27 +1,43 @@
+{% load static %}
+<html>
 
-<h1><a href="/"><h1>my Movie reviews</h1></a></h1>
-<a href="/create">Add a new review</a>
+<head>
+    <title>mymovie</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+    </style>
+</head>
 
-
-
-{% for review in reviews %}
-    <div>
-        <a href="/{{review.id}}"> {{ review.title }}</a>
-        <p>개봉일 {{ review.year }}</p>
-        <p>장르 {{ review.genre }}</p>
-        <p>별점 {{ review.rating }}</p>
-        {% if review.image %}
-            <img src="{{ review.image.url }}" alt=" Movie Poster">
-        {% endif %}
-        {% load static %}
-        <img src="{% static '트루먼쇼 포스터.png' %}" alt="{{review_create.image}}">
-        {{review.image}}
+<body>
+    <div class="page-header">
+        <h1><a href="/">
+                <h1>my Movie reviews</h1>
+            </a></h1>
+        <a href="/create">Add a new review</a>
     </div>
-{% endfor %}
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}
+                {% for review in reviews %}
+                <div>
+                    <a href="/{{review.id}}"> {{ review.title }}</a>
+                    <p>개봉일 {{ review.year }}</p>
+                    <p>장르 {{ review.genre }}</p>
+                    <p>별점 {{ review.rating }}</p>
+                    {% if review.image %}
+                    <img src="{{ review.image.url }}" alt=" Movie Poster">
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
 
-
-
-
-
-
-
+</html>

@@ -5,7 +5,7 @@ from .models import Reviewlist
 
 
 def review_list(request):
-  reviews=Reviewlist.objects.all()
+  reviews=Reviewlist.objects.all().order_by('-rating', '-time')
   context={
     'reviews': reviews
   }
