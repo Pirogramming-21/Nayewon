@@ -10,8 +10,12 @@
         <p>개봉일 {{ review.year }}</p>
         <p>장르 {{ review.genre }}</p>
         <p>별점 {{ review.rating }}</p>
+        {% if review.image %}
+            <img src="{{ review.image.url }}" alt=" Movie Poster">
+        {% endif %}
+        {% load static %}
+        <img src="{% static '트루먼쇼 포스터.png' %}" alt="{{review_create.image}}">
         {{review.image}}
-        <img src="{{review_create.image.url}}" alt="{{review_create.image}}">
     </div>
 {% endfor %}
 

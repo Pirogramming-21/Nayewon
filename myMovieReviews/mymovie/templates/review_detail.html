@@ -10,7 +10,9 @@
 <p>장르 {{ review.genre }}</p>
 <p>러닝타임 {{ review.time }}</p>
 {{review.content}}<br/>
-
+{% if review.image %}
+    <img src="{{ review.image.url }}" alt="{{review.title}}">
+{% endif %}
 <a href="/{{review.id}}/update"> 수정 </a>
 <form action="/{{review.id}}/delete" method="post">
     {% csrf_token %}
@@ -18,12 +20,6 @@
 </form>
 
 
-<!-- {% for review in reviews %}
-    <div>
-        {{ review }}
-        <img src="{{review_create.image.url}}" alt="{{review_create.image}}">
-    </div>
-{% endfor %}
 
 
 

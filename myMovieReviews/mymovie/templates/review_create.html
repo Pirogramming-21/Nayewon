@@ -15,7 +15,18 @@
       <input name="actor" placeholder="주연" /> <br/>
     </label>
     <label>장르
-      <input name="genre" placeholder="장르" /> <br/>
+      <select name="genre">
+        <option value="action">Action</option>
+        <option value="comedy">Comedy</option>
+        <option value="drama">Drama</option>
+        <option value="horror">Horror</option>
+        <option value="romance">Romance</option>
+        <option value="sci-fi">Sci-Fi</option>
+        <option value="sci-fi">documentary</option>
+        <option value="sci-fi">animation</option>
+        <option value="sci-fi">disaster</option>
+        <option value="sci-fi">art</option>
+      </select> <br/>
     </label>
     <label>별점
       <input name="rating" placeholder="별점" /> <br/>
@@ -25,6 +36,9 @@
     </label>
     <label>리뷰<br/>
       <textarea name="content" cols="30" rows="10" placeholder="내용"></textarea>
+    </label>
+    <label>사진 업로드
+      <input type="file" name="image" accept="image/*">
     </label>
     <div>
       <input type="submit" value="작성완료">
