@@ -1,59 +1,141 @@
-.page-header h1 a, .post h1 a {
-    color: #FCA205;
-    font-family : 'Lobster';
-}
-
 body {
-    padding-left: 15px;
+    width: 100%;
+    background-color: #EDEBFA;
+    text-decoration-line: none;
 }
 
 .page-header {
-    background-color: #ff9400;
+    background-color: #B9B0D6;
     margin-top: 0;
-    padding: 20px 20px 20px 40px;
+    height: 150px;
+    display: flex;
+    justify-content:center;
 }
 
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+.page-header-content {
+    width: min(1400px,100%);
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: min(1400px,100%);
+    padding: 0 40px;
+
+}
+
+/* .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;
     font-size: 36pt;
     text-decoration: none;
+} */
+
+
+.plus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-display: center;
+    padding: 10px 0 0 0 ;
+}
+
+.plus:hover {
+    text-decoration: none;
+}
+
+/* 📽️ 🎞️ 🎥 ✏️ Add a new review ✏️✒️*/
+.page-header a:nth-child(1), .page-header a:nth-child(2) {
+    color: #EDEBFA;
+    font-family: "Ga Maamli", sans-serif;
+    text-decoration-line: none;
+    font-style: none;
+}
+
+.page-header a h1 {
+    /* font-family: "Ga Maamli", sans-serif; */
+    font-family: "Black Ops One", system-ui;
+    font-size: 45px;
+}
+
+.mymovie:hover h1 {
+    text-decoration: none;
+    text-decoration-line: none;
+    color:#a861e6;
+}
+
+.page-header p:hover {
+    text-decoration: none;
+    text-decoration-line: none;
+    color:white;
+}
+
+.page-header i:hover {
+    text-decoration: none;
+    text-decoration-line: none;
+    color:white;
+}
+
+.page-header a:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap
+}
+
+.page-header i {
+    font-size: 40px;
+}
+
+.page-header p {
+    font-size: 20px;
+}
+
+
+/* color: #DCEAF9; 
+color: #EDEBFA; 연보라
+color: #F5CFE9;
+color: #B9B0D6;
+color: #809BC4;
+color: #C9B8D8; 보라
+color: #EDC4D6; 분홍
+color: #FFDCE2; 연분홍
+color: #FFEAE5; 연연분홍 */
+/* 349 × 500 픽셀 */
+
+
+
+.content-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: "Jua", sans-serif;
 }
 
 .content {
-    margin-left: 40px;
-    font-family: "Jua", sans-serif;
+    width: min(1320px, 100%);
+    display: flex;
+    justify-content: center;
 }
 
-h1, h2, h3, h4 {
-    /* font-family: 'Lobster', cursive; */
-    font-family: "Jua", sans-serif;
-}
-
-.date {
-    color: #828282;
-}
-
-.save {
-    float: right;
-}
-
-.post-form textarea, .post-form input {
+.row {
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
-    float: right;
-    font-size: 26pt;
-    margin-right: 20px;
+.col-md-8 {
+    width: 25%;
+    text-align: center;
 }
 
-.post {
-    margin-bottom: 70px;
+.col-md-8 img {
+    width: 325px;
+    height: 465px;
 }
 
-.post h1 a, .post h1 a:visited {
-    color: #000000;
-    font-family: "Jua", sans-serif;
-}
 
+.col-md-8 a {
+    font-family: "Black Ops One", system-ui;
+    color:#a861e6;
+}
