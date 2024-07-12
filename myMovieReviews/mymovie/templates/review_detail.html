@@ -1,3 +1,4 @@
+{% load custom_filters %}
 <h1><a href="/"><h1>my Movie reviews</h1></a></h1>
 
 
@@ -8,7 +9,7 @@
 <p>감독 {{ review.director }}</p>
 <p>주연 {{ review.actor }}</p>
 <p>장르 {{ review.genre }}</p>
-<p>러닝타임 {{ review.time }}</p>
+<p>러닝타임 {{ review.time|convert_minutes }}</p>
 {{review.content}}<br/>
 {% if review.image %}
     <img src="{{ review.image.url }}" alt="{{review.title}}">
