@@ -1,25 +1,81 @@
 {% load custom_filters %}
-<h1><a href="/"><h1>my Movie reviews</h1></a></h1>
 
+{% load static %}
+<html>
 
-{{review.title}}
-<p>개봉일 {{ review.year }}</p>
-<p>장르 {{ review.genre }}</p>
-<p>별점 {{ review.rating }}</p>
-<p>감독 {{ review.director }}</p>
-<p>주연 {{ review.actor }}</p>
-<p>러닝타임 {{ review.time|convert_minutes }}</p>
-{{review.content}}<br/>
-{% if review.image %}
-    <img src="{{ review.image.url }}" alt="{{review.title}}">
-{% endif %}
-<a href="/{{review.id}}/update"> 수정 </a>
-<form action="/{{review.id}}/delete" method="post">
-    {% csrf_token %}
-    <input type="submit" value="삭제하기">
-</form>
+<head>
+    <title>mymovie</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Ga+Maamli&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbit&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&display=swap');
+    </style>
 
+    </style>
+</head>
 
+<body>
+    <div class="page-header">
+        <div class="page-header-content">
+            <a href="/" class="mymovie">
+                <h1>🎬 my Movie reviews 🍿</h1>
+            </a>
+            <a href="/{{review.id}}/update" class="plus">
+                <i class="ri-edit-2-line"></i>
+                <p>Edit</p>
+            </a>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="content">
+            <div class="row">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h1> 🎞️ {{review.title}} 🎞️</h1>
+                    </div>
+                    <div class="detail-container">
+                        <div class="detail-top">
+                            <div class="detail-top-left">
+                                {% if review.image %}
+                                <img src="{{ review.image.url }}" alt="{{review.title}}">
+                                {% endif %}
+                            </div>
+                            <div class="detail-top-right">
+                                <div class="detail1">
+                                    <div class="detail1-left" ><p>개봉일 |</p>{{ review.year }}</div>
+                                    <div class="detail1-left"><p>감독 |</p>{{ review.director }}<br/></div>
+                                    <div class="detail1-left"><p>주연 |</p>{{ review.actor }}<br/></div>
+                                    <div class="detail1-left"><p>장르 |</p>{{ review.genre }}<br/></div>
+                                    <div class="detail1-left"><p>별점 |</p>{{ review.rating }}</div>
+                                    <div class="detail1-left"><p>러닝타임 |</p>{{ review.time|convert_minutes }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-bottom">
+                            <p>리뷰</p>
+                            <div class="review-content">
+                                <p>{{review.content}}</p>
+                            </div>
+                        </div>
+                        <form action="/{{review.id}}/delete" method="post" class="delete-btn">
+                            {% csrf_token %}
+                            <input id="input7" type="submit" value="Delete">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 
-
-
+</html>
