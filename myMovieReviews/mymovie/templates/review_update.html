@@ -1,4 +1,108 @@
-<h1>글 수정하기</h1>
+{% load static %}
+<html>
+
+<head>
+    <title>mymovie</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Ga+Maamli&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbit&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&display=swap');
+</style>
+
+    </style>
+</head>
+
+<body>
+    <div class="page-header">
+        <div class="page-header-content">
+            <a href="/" class="mymovie">
+                <h1>🎬  my Movie reviews 🍿</h1>
+            </a>
+            <a href="/create" class="plus">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12C22 17.5228 17.5229 22 12 22C6.4772 22 2 17.5228 2 12C2 6.47715 6.4772 2 12 2V4C7.5817 4 4 7.58172 4 12C4 16.4183 7.5817 20 12 20C16.4183 20 20 16.4183 20 12C20 9.53614 18.8862 7.33243 17.1346 5.86492L15 8V2L21 2L18.5535 4.44656C20.6649 6.28002 22 8.9841 22 12Z"></path></svg>
+                <p>reset </p>
+            </a>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="content">
+            <div class="row">
+              <div class="form-container">
+                <div class="form-header">
+                  <i class="ri-pen-nib-line"></i><h1> Fill out this form </h1><i class="ri-pen-nib-line"></i>
+                </div>
+                <form action="/{{review.id}}/update" method="post" enctype="multipart/form-data" class="create-form">
+                  {% csrf_token %}
+                  <label class="label1">제목
+                    <input id="input1" name="title" placeholder="제목"  value="{{review.title}}"/> <br/>
+                  </label>
+                  <label class="label1">개봉일
+                    <input id="input1" name="year" placeholder="개봉일" value="{{review.year}}"/> <br/>
+                  </label class="label1">
+                  <label class="label2">감독
+                    <input id="input1" name="director" placeholder="감독" value="{{review.director}}"/> <br/>
+                  </label>
+                  <label class="label4">주연
+                    <input id="input1" name="actor" placeholder="출연진" value="{{review.actor}}"/> <br/>
+                  </label>
+                  <label class="label2" value="{{review.genre}}">장르
+                    <select name="genre" id="input2">
+                      <option value="action">Action</option>
+                      <option value="comedy">Comedy</option>
+                      <option value="drama">Drama</option>
+                      <option value="horror">Horror</option>
+                      <option value="romance">Romance</option>
+                      <option value="sci-fi">Sci-Fi</option>
+                      <option value="sci-fi">documentary</option>
+                      <option value="sci-fi">animation</option>
+                      <option value="sci-fi">disaster</option>
+                      <option value="sci-fi">art</option>
+                    </select> <br/>
+                  </label>
+                  <label class="label2">별점
+                    <input id="input2" name="rating" placeholder="별점" value="{{review.rating}}" /> <br/>
+                  </label>
+                  <label class="label2">러닝타임
+                    <input id="input2" name="time" placeholder="분 단위" value="{{review.time}}" /> <br/>
+                  </label>
+                  <label class="label3">리뷰<br/>
+                    <textarea id="input3" name="content" cols="30" rows="10" placeholder="내용">{{review.content}}</textarea>
+                  </label>
+                  <label class="label5">사진 업로드
+                    <input id="input5" type="file" name="image" accept="image/*"><br>
+                  </label>
+                  <div>
+                    <input id="input6" type="submit" value="Save">
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+
+</html>
+
+
+
+
+
+
+<!-- 
+
+
+
+
 
 
 
@@ -43,7 +147,7 @@
       <input type="file" name="image" accept="image/*">
     </label>
     
-    <div>
-      <input type="submit" value="수정완료">
+    <div class="">
+      <input type="submit" value="Save">
     </div>
-</form>
+</form> -->
