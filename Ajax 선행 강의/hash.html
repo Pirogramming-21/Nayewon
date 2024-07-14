@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <a href="#three">three</a>
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum, cumque? Excepturi cupiditate asperiores sequi ipsa, unde, dicta hic velit ipsam quasi distinctio libero saepe commodi sed odio tenetur nulla delectus ea voluptatem eaque consequuntur quidem repudiandae molestiae, dignissimos recusandae! Dolor dolore, odit non porro natus culpa quaerat atque maiores optio sed molestias amet perferendis nihil libero, tempore architecto aut quibusdam fugiat consequatur voluptate accusantium rem ipsa esse veniam? Provident culpa quasi magni excepturi recusandae aut non ratione quam a alias iure doloribus asperiores dicta ad aspernatur perferendis, voluptate quibusdam atque deserunt, inventore rem velit blanditiis neque quas. Rerum, magni molestias.
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ab distinctio, itaque maxime debitis facere repudiandae reiciendis doloremque rerum deleniti unde. Quasi molestias corporis voluptate, ratione magnam totam debitis unde.
+    </p>
+    <!-- id값을 지정해주고 url에 #three를 치면 스크롤이 해당 문단으로 이동함. -->
+    <p id="three">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aperiam ex, perspiciatis dolore facere exercitationem fugit placeat, fuga dignissimos officiis ratione consequuntur asperiores repellat eos, natus enim veritatis libero odio?
+    </p>
+    <script>
+        if(location.hash){
+            // substr을 넣으면 #을 제외한 id값을 가져옴
+            console.log(location.hash.substr(1));
+        }else {
+
+        }
+    </script>
+    
+</body>
+</html>
