@@ -6,12 +6,20 @@
 
     </article>
     <input type="button" value="fetch" onclick="
-       fetch('css').then(function(response){
-        response.text().then(function(text){
-        //   alert(text);
-          document.querySelector('article').innerHTML=text;
-        }) 
-      })       
+    //    fetch('css').then(function(response){
+    //     response.text().then(function(text){
+    //     //   alert(text);
+    //       document.querySelector('article').innerHTML=text;
+    //     }) 
+    //   }) 
+    // 비동기적인 실행은 동시에 실행됨(병렬적) Ajax의 A가 바로 Asynchronous의 약자임.
+    function callbackme(){
+        console.log('response end');
+
+    }
+    fetch('html').then(callbackme);   
+    console.log(1);
+    console.log(2);  
     ">
  </body>
 </html>
