@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>아이디어 생성</h2>
+ <form
+    action="{% url 'ideas:idea_create' %}"
+    method="post"
+    enctype="multipart/form-data">
+    {%csrf_token%}{{ form.as_p }}
+    <label for="id_images">이미지:</label>
+    <input type="file" name="images" multiple>
+    <button class="btn btn-success">등록하기</button>
+  </form>
+{% endblock %}

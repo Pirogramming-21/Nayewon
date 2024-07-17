@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="tool_detail">
+    <div><h2>개발툴 디테일</h2></div>
+    
+    <div class="tool_detail_content">
+        <p>{{ tool.name }}</p>
+        <p>{{ tool.kind }}</p>
+        <p>{{ tool.context }}</p>
+    </div>
+    
+    <ul>
+        <p>만들 수 있는 SW 목록</p>
+        {% for idea in ideas %}
+
+            <li><a href="{% url 'ideas:idea_detail' pk=idea.id %}">{{ idea.title }}</a></li>
+        {% endfor %}
+    </ul>
+    
+    <div class="devtool_detail_btn">
+        <form action="/devtools/{{tool.id}}/delete" method="post" class="delete-btn">
+            {% csrf_token %}
+            <input id="input6" type="submit" value="Delete">
+        </form>
+    
+        <button>
+            <a href="{% url 'ideas:tool_update' pk=tool.id %}" class="plus">
+                <i class="ri-edit-2-line"></i>
+                <p>Edit</p>
+            </a>
+        </button>
+    
+        <button>
+            <a href="/devtools" class="plus">
+                <i class="ri-edit-2-line"></i>
+                <p>목록</p>
+            </a>
+        </button>
+    </div>
+</div>
+
+{% endblock %}

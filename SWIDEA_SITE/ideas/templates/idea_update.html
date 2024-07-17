@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>아이디어 수정</h2>
+
+<form method="POST" action="{% url 'ideas:idea_update' pk=idea.pk %}" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {{ image_form.as_p }}
+  <button type="submit">Update Idea</button>
+</form>
+
+{% endblock %}

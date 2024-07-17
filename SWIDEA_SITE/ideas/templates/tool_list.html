@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>툴 리스트</h2>
+  <div class="tool_list">
+    {%for tool in tools%}
+      <div class="tool_list_content">
+        <p><a href="{{tool.id}}">{{ tool.name }}</a></p>
+        <p>{{ tool.kind }}</p>
+        <p>{{ tool.context }}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
