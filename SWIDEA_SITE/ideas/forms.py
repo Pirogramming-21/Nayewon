@@ -1,5 +1,5 @@
 from django import forms
-from .models import Idea, DevTool, IdeaImage
+from .models import Idea, DevTool
 
 
 class IdeaForm(forms.ModelForm):
@@ -7,13 +7,6 @@ class IdeaForm(forms.ModelForm):
         model = Idea
         fields = ['title', 'content', 'interest', 'devtool']
 
-class ImageForm(forms.ModelForm):
-    image = forms.ImageField(widget=forms.ClearableFileInput(attrs={'allow_multiple_selected': True}), required=False)
-
-    class Meta:
-        model = IdeaImage
-        fields = ['image']
-  
 
 
 class DevToolForm(forms.ModelForm):

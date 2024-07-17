@@ -1,8 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Idea, DevTool, IdeaImage, IdeaStar
-from .forms import IdeaForm, DevToolForm, ImageForm
+from django.shortcuts import render, redirect
+from .models import Idea, DevTool, IdeaStar, IdeaImage
+from .forms import IdeaForm, DevToolForm
 from django.http import JsonResponse
-from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.db.models import Count
 
@@ -13,7 +12,7 @@ def idea_list(request):
 
     if sort == 'starred':
         ideas = ideas.annotate(num_stars=Count('ideastar')).order_by('-num_stars')
-    elif sort == 'name':
+    if sort == 'name':
         ideas = ideas.order_by('title')
     elif sort == 'created':
         ideas = ideas.order_by('created_at')
@@ -21,8 +20,8 @@ def idea_list(request):
         ideas = ideas.order_by('-updated_at')
 
     starred_ideas = []
-    if request.user.is_authenticated:
-        starred_ideas = IdeaStar.objects.filter(user=request.user).values_list('idea_id', flat=True)
+    # if request.user.is_authenticated:
+    #     starred_ideas = IdeaStar.objects.filter(user=request.user).values_list('idea_id', flat=True)
 
     ctx = {
         'ideas': ideas,
@@ -31,21 +30,29 @@ def idea_list(request):
     return render(request, 'idea_list.html', ctx)
 
 
-def idea_create(req):
-    if req.method == "POST":
-        form = IdeaForm(req.POST)
-        image_form = ImageForm(req.POST, req.FILES)
-        if form.is_valid() and image_form.is_valid():
-            idea = form.save()
-            images = req.FILES.getlist('images')
-            for image in images:
-                IdeaImage.objects.create(idea=idea, image=image)
+def idea_create(request):
+    if request.method == "POST":
+        form = IdeaForm(request.POST)
+        
+        if form.is_valid():
+            # Create Idea object
+            idea = form.save(commit=False)  # Commit=False to prevent saving to DB yet
+            image = request.FILES.get('image')
+            if image:
+                idea.image = image 
+            idea.save()      
+            
             return redirect("ideas:idea_detail", pk=idea.pk)
     else:
         form = IdeaForm()
-        image_form = ImageForm()
-    ctx = {'form': form, 'image_form': image_form}
-    return render(req, 'idea_create.html', ctx)
+       
+
+    context = {
+        'form': form,
+       
+    }
+    return render(request, 'idea_create.html', context)
+
 
 def idea_detail(request, pk):
    idea=Idea.objects.get(id=pk)
@@ -63,19 +70,17 @@ def idea_update(request, pk):
 
     if request.method == "POST":
         form = IdeaForm(request.POST, instance=idea)
-        image_form = ImageForm(request.POST, request.FILES, instance=idea)  # Include instance=idea to update existing images
-
-        if form.is_valid() and image_form.is_valid():
+       
+        if form.is_valid():
             form.save()
-            image_form.save()
+           
             return redirect("ideas:idea_detail", pk=pk)
     else:
         form = IdeaForm(instance=idea)
-        image_form = ImageForm(instance=idea)  # Populate image form with existing images
-
+       
     ctx = {
         'form': form,
-        'image_form': image_form,
+ 
         'idea': idea,
     }
     return render(request, 'idea_update.html', ctx)
@@ -127,10 +132,10 @@ def tool_update(req,pk):
 from django.http import JsonResponse
 
 @require_POST
-@login_required  # Ensure the user is logged in
+
 def toggle_star(request, pk):
-    idea = get_object_or_404(Idea, pk=pk)
-    star, created = IdeaStar.objects.get_or_create(user=request.user, idea=idea)
+    idea = Idea.objects.get(id=pk)
+    star, created = IdeaStar.objects.get_or_create(idea=idea)
     if not created:
         star.delete()
         starred = False
@@ -139,9 +144,8 @@ def toggle_star(request, pk):
     return JsonResponse({'starred': starred})
 
 @require_POST
-@login_required
 def change_interest(request, pk):
-    idea = get_object_or_404(Idea, pk=pk)
+    idea = Idea.objects.get(id=pk)
     action = request.POST.get('action')
     if action == 'increase':
         idea.interest += 1

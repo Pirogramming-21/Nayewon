@@ -7,6 +7,7 @@
     method="post"
     enctype="multipart/form-data">
     {%csrf_token%} {{form.as_p}}
+    {{ image_form.as_p }}
     <button class="btn btn-success">등록하기</button>
   </form>
 {% endblock %}

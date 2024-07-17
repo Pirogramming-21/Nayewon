@@ -6,9 +6,20 @@
 
 <div class="idea_detail_content">
     <div class="idea_detail_left">
-        {% if idea.image %}
-            <img src="{{ idea.image.url }}" alt=" idea thumbnail">
-        {% endif %}
+        <div class="image_content">
+            {% if idea.image %}
+                <img src="{{ idea.image.url }}" alt=" idea thumbnail">
+            {% endif %}
+            <div class="star">
+                <button class="star-btn" data-id="{{ idea.id }}">
+                    {% if idea.id in starred_ideas %}
+                    <i class="ri-star-fill"></i>
+                    {% else %}
+                    <i class="ri-star-line"></i>
+                    {% endif %}
+                </button>
+            </div>
+        </div>
     </div>
     <div class="idea_detail_right">
         <p>제목|{{ idea.title }}</p>

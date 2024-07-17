@@ -7,8 +7,8 @@
     method="post"
     enctype="multipart/form-data">
     {%csrf_token%}{{ form.as_p }}
-    <label for="id_images">이미지:</label>
-    <input type="file" name="images" multiple>
+    <label for="image">이미지:</label>
+    <input type="file" name="image" multiple>
     <button class="btn btn-success">등록하기</button>
   </form>
 {% endblock %}

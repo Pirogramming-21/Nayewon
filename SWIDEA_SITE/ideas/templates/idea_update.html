@@ -6,7 +6,15 @@
 <form method="POST" action="{% url 'ideas:idea_update' pk=idea.pk %}" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}
-  {{ image_form.as_p }}
+  {% if idea.image %}
+  <p>현재 이미지:</p>
+  <img src="{{ idea.image.url}}" alt="Current Image" style="max-width: 300px;">
+  {% endif %}
+
+  <!-- Allow to update image -->
+  <label for="image">이미지 업데이트:</label>
+  <input type="file" name="image">
+  
   <button type="submit">Update Idea</button>
 </form>
 

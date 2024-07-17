@@ -15,5 +15,6 @@ urlpatterns = [
     path('devtools/<int:pk>/update', tool_update, name='tool_update'),
     path('devtools/<int:pk>/delete', tool_delete, name='tool_delete'),
     path('<int:pk>/toggle_star', toggle_star, name='toggle_star'),
+    path('<int:pk>/change_interest', change_interest, name='change_interest'),
    
 ]
