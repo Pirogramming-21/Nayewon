@@ -1,0 +1,57 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirostagram</title>
+    <link rel="stylesheet" href="{% static 'piro/styles.css' %}">
+</head>
+<body>
+    <h1>Pirostagram</h1>
+
+    <form method="post" action="{% url 'piro:add_post' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Post</button>
+    </form>
+
+    <div id="posts">
+        {% for post in posts %}
+            <div class="post" id="post-{{ post.id }}">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="Post image">
+                {% endif %}
+                <p>Likes: <span class="likes-count">{{ post.likes.count }}</span></p>
+                <button class="like-button" data-post-id="{{ post.id }}">
+                    {% if user in post.likes.all %}
+                        Dislike
+                    {% else %}
+                        Like
+                    {% endif %}
+                </button>
+                <div class="comments">
+                    <form class="comment-form" data-post-id="{{ post.id }}">
+                        {% csrf_token %}
+                        <textarea name="content" placeholder="Add a comment..."></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+                    {% for comment in post.comments.all %}
+                        <div class="comment" id="comment-{{ comment.id }}">
+                            <p>{{ comment.content }}</p>
+                            <p>by {{ comment.user.username }} on {{ comment.created_at }}</p>
+                            {% if comment.user == request.user %}
+                                <button class="delete-comment-button" data-comment-id="{{ comment.id }}">Delete</button>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script src="{% static 'piro/scripts.js' %}"></script>
+</body>
+</html>
