@@ -1,4 +1,113 @@
 {%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7d6a50a6b2.js" crossorigin="anonymous"></script>
+    <title>Pirostagram</title>
+    <link rel="stylesheet" href="{% static 'piro/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'piro/reset.css' %}">
+</head>
+
+<body>
+    <header>
+        <div class="header__container">
+            <div class="header__icon"><i class="fas fa-cog"></i></div>
+            <div class="header__username">{{ user.username }}</div>
+            <div class="header__icon">
+                
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'piro:logout' %}"><i class="fas fa-user-plus"></i></a>
+                    {% endif %}
+                
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="profile">
+            <div class="profile__top">
+                <div class="profile__img">
+                    <img src="https://picsum.photos/seed/picsum1/200/300" alt="" />
+                </div>
+                <div class="profile__right">
+                    <div class="profile__username">Pirostagram</div>
+                    <div class="profile__btn"><button>프로필 편집</button></div>
+                </div>
+            </div>
+            <div class="profile__bottom">
+                <span class="profile__name">피로</span><br />
+                <span class="profile__info">반갑습니다 <br /></span>
+            </div>
+        </div>
+
+        <div class="story">
+            <div class="story__container">
+                <!-- Stories content here -->
+                <div class="story__content">
+                    <div class="story__img">
+                        <img src="https://picsum.photos/seed/picsum1/200/300" alt="" />
+                    </div>
+                    <div class="story__title">스토리1</div>
+                </div>
+                <div class="story__content">
+                    <div class="story__img">
+                        <img src="https://picsum.photos/seed/picsum1/200/300" alt="" />
+                    </div>
+                    <div class="story__title">스토리2</div>
+                </div>
+                <div class="story__content">
+                    <div class="story__img">
+                        <img src="https://picsum.photos/seed/picsum1/200/300" alt="" />
+                    </div>
+                    <div class="story__title">스토리3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="statistics">statistics</div>
+        <div class="toolbar">toolbar</div>
+        {%block content%}
+        <div class="content">
+            <div class="content__container">
+                    {% for post in posts %}
+                    
+                        {% if post.image %}
+                        <div class="content__photo">
+                            <a href="{% url 'piro:post_detail' post.id %}" class="content__photo">
+                                <img src="{{ post.image.url }}" alt="Post image">
+                            </a>
+                        </div>
+                        
+                        {% endif %}
+                    
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {%endblock%}
+    </main>
+
+    <footer>
+        <div class="footer__container">
+            <div class="footer__item"><a href="{% url 'piro:index' %}"><i class="fas fa-home"></a></i></div>
+            <div class="footer__item"><i class="fas fa-search"></i></div>
+            <div class="footer__item" ><a href="{% url 'piro:add_post' %}"><i class="far fa-plus-square"></i></a></div>
+            <div class="footer__item"><i class="far fa-heart"></i></div>
+            <div class="footer__image"><img src="http://placekitten.com/300/300" alt="" /></div>
+        </div>
+    </footer>
+
+    <script src="{% static 'piro/scripts.js' %}"></script>
+</body>
+
+</html>
+
+<!-- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +115,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pirostagram</title>
     <link rel="stylesheet" href="{% static 'piro/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'piro/reset.css' %}">
 </head>
 <body>
     <h1>Pirostagram</h1>
@@ -60,6 +170,8 @@
         {% endfor %}
     </div>
 
-    <script src="{% static 'piro/scripts.js' %}"></script>
+    <script src="{% static 'piro/scripts.js' %}"></script>  
+        
+        
 </body>
-</html>
+</html> -->

@@ -1,0 +1,40 @@
+{%extends "piro/index.html"%}
+{%load static%}
+{%block content%}
+
+    <h1>게시글 detail</h1>
+
+    <div id="post-{{ post.id }}" class="post">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="Post image">
+        {% endif %}
+        <p>Likes: <span class="likes-count">{{ post.likes.count }}</span></p>
+        <button class="like-button" data-post-id="{{ post.id }}">
+            {% if user in post.likes.all %}
+                Dislike
+            {% else %}
+                Like
+            {% endif %}
+        </button>
+        <div class="comments">
+            <form class="comment-form" data-post-id="{{ post.id }}">
+                {% csrf_token %}
+                <textarea name="content" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            {% for comment in post.comments.all %}
+                <div class="comment" id="comment-{{ comment.id }}">
+                    <p>{{ comment.content }}</p>
+                    <p>by {{ comment.user.username }} on {{ comment.created_at }}</p>
+                    {% if comment.user == request.user %}
+                        <button class="delete-comment-button" data-comment-id="{{ comment.id }}">Delete</button>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{%endblock%}

@@ -43,6 +43,17 @@ def index_view(request):
     form = PostForm()
     return render(request, 'piro/index.html', {'posts': posts, 'form': form})
 
+# @login_required
+# def add_post(request):
+#     if request.method == 'POST':
+#         form = PostForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             post = form.save(commit=False)
+#             post.user = request.user
+#             post.save()
+#             return redirect('piro:index')
+#     return redirect('piro:post_create')
+
 @login_required
 def add_post(request):
     if request.method == 'POST':
@@ -52,7 +63,9 @@ def add_post(request):
             post.user = request.user
             post.save()
             return redirect('piro:index')
-    return redirect('piro:index')
+    else:
+        form = PostForm()
+    return render(request, 'piro/add_post.html', {'form': form})  # add_post.html 템플릿을 렌더링
 
 @login_required
 @csrf_exempt
@@ -61,14 +74,17 @@ def like_post(request):
         data = json.loads(request.body)
         post_id = data.get('post_id')
         post = get_object_or_404(Post, id=post_id)
-        if post.likes.filter(id=request.user.id).exists():
-            post.likes.remove(request.user)
-            liked = False
+        Like_post = Like.objects.filter(user=request.user, post=post)
+        if Like_post.exists():
+            Like_post.delete()
+            liked=False
         else:
-            post.likes.add(request.user)
+            Like.objects.create(user=request.user, post=post)
             liked = True
         return JsonResponse({'liked': liked, 'likes_count': post.likes.count()})
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+
 
 @login_required
 @csrf_exempt
@@ -96,7 +112,10 @@ def delete_comment(request, comment_id):
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
 
-
+@login_required
+def post_detail(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    return render(request, 'piro/post_detail.html', {'post': post})
 # @login_required
 # def edit_post(request, post_id):
 #     post = get_object_or_404(Post, id=post_id)

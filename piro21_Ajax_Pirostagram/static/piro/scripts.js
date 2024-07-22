@@ -12,15 +12,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 body: JSON.stringify({ 'post_id': postId })
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.liked) {
-                    this.textContent = 'Dislike';
-                } else {
-                    this.textContent = 'Like';
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
                 }
-                document.querySelector(`#post-${postId} .likes-count`).textContent = data.likes_count;
-            });
+                return response.json();
+            })
+            .then(data => {
+                if (data.liked !== undefined) { // 데이터를 제대로 받았는지 확인
+                    if (data.liked) {
+                        this.textContent = 'Dislike';
+                    } else {
+                        this.textContent = 'Like';
+                    }
+                    document.querySelector(`#post-${postId} .likes-count`).textContent = data.likes_count;
+                }
+            })
+            .catch(error => console.error('Error:', error)); // 오류 로그 출력
         });
     });
 
@@ -39,7 +47,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 body: JSON.stringify({ 'post_id': postId, 'content': content })
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 const commentHtml = `
                     <div class="comment" id="comment-${data.comment_id}">
@@ -53,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 document.querySelector(`#comment-${data.comment_id} .delete-comment-button`).addEventListener('click', function () {
                     const commentId = this.dataset.commentId;
+                    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
                     fetch(`/delete_comment/${commentId}/`, {
                         method: 'POST',
@@ -61,14 +75,21 @@ document.addEventListener('DOMContentLoaded', function () {
                             'X-CSRFToken': csrftoken
                         }
                     })
-                    .then(response => response.json())
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
                     .then(data => {
                         if (data.success) {
                             document.querySelector(`#comment-${commentId}`).remove();
                         }
-                    });
+                    })
+                    .catch(error => console.error('Error:', error)); // 오류 로그 출력
                 });
-            });
+            })
+            .catch(error => console.error('Error:', error)); // 오류 로그 출력
         });
     });
 
@@ -84,12 +105,18 @@ document.addEventListener('DOMContentLoaded', function () {
                     'X-CSRFToken': csrftoken
                 }
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data.success) {
                     document.querySelector(`#comment-${commentId}`).remove();
                 }
-            });
+            })
+            .catch(error => console.error('Error:', error)); // 오류 로그 출력
         });
     });
 });
